@@ -1,9 +1,14 @@
 .fonts {
     display: flex;
-    flex-direction: wrap;
+    flex-wrap: wrap;
+    gap: 20;
 }
-.font{
+.font_block{
     padding: 20px;
-    border: 1px solid dashed;
+    border: 1px grey dotted;
     border-radius: 10px;
+    text-decoration: none;
+}
+.font_block_aa{
+    font-size: 35px;
 }

@@ -5,6 +5,7 @@ import StoreModal from "fontdue-js/StoreModal";
 import { fetchGraphql } from "@/lib/graphql";
 import { RootLayoutQuery } from "../../operations-types";
 import Image from "next/image";
+import globals from "./styles/global.module.css"
 
 
 const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
@@ -32,19 +33,26 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body>
-                <FontdueProvider url={fontdueUrl}>
-                    <nav>
-                        <Image
-                            src={viewer?.logo?.url!}
-                            alt="Logo"
-                            width={(viewer?.logo?.meta.width ?? 100) / 2}
-                            height={(viewer?.logo?.meta.height ?? 100) / 2}
-                            priority
-                        />
-                    </nav>
-                    {children}
-                    <StoreModal />
-                </FontdueProvider>
+                <div className={globals.page}>
+                    <FontdueProvider url={fontdueUrl}>
+                        <header className={globals.header}>
+                            <nav>
+                                <Image
+                                    src={viewer?.logo?.url!}
+                                    alt="Logo"
+                                    width={(viewer?.logo?.meta.width ?? 100) / 2}
+                                    height={(viewer?.logo?.meta.height ?? 100) / 2}
+                                    priority
+                                />
+                            </nav>
+                        </header>
+                        {children}
+                        <StoreModal />
+                        <footer className={globals.footer}>
+                            <p>{viewer.settings?.footerText}</p>
+                        </footer>
+                    </FontdueProvider>
+                </div>  
             </body>
         </html>
     );
