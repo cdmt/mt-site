@@ -1,0 +1,12 @@
+schema: ${NEXT_PUBLIC_FONTDUE_URL}/graphql
+documents: './src/queries/*.graphql'
+generates:
+  operations-types.ts:
+    config:
+      onlyOperationTypes: true
+      preResolveTypes: true
+      skipTypename: true
+      avoidOptionals: true
+    plugins:
+      - typescript
+      - typescript-operations

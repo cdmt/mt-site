@@ -1,32 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "fontdue-js/fontdue.css";
+import FontdueProvider from "fontdue-js/FontdueProvider";
+import StoreModal from "fontdue-js/StoreModal";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "Moretype",
-  description: "Moretype type foundry",
+    title: "Moretype",
+    description: "Moretype type foundry",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
-    </html>
-  );
+    export default function RootLayout({
+        children,
+    }: Readonly<{
+        children: React.ReactNode;
+    }>) {
+    return (
+        <html lang="en">
+            <body>
+                
+                <FontdueProvider url={fontdueUrl}>
+                    {children}
+                    <StoreModal />
+                </FontdueProvider>
+            </body>
+        </html>
+    );
 }
