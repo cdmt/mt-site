@@ -158,6 +158,11 @@ export type UpdateOrderInput = {
   stripePaymentMethodId: InputMaybe<Scalars['String']['input']>;
 };
 
+export type FontsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FontsQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string } | null } | null> | null } | null } };
+
 export type RootLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 

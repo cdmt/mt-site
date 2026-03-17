@@ -1,0 +1,12 @@
+query Fonts {
+  viewer {
+    fontCollections(first: 20) {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+} 

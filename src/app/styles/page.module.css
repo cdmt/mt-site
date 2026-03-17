@@ -1,0 +1,9 @@
+.fonts {
+    display: flex;
+    flex-direction: wrap;
+}
+.font{
+    padding: 20px;
+    border: 1px solid dashed;
+    border-radius: 10px;
+}

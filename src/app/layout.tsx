@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import "fontdue-js/fontdue.css";
 import FontdueProvider from "fontdue-js/FontdueProvider";
 import StoreModal from "fontdue-js/StoreModal";
