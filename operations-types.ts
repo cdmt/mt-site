@@ -1,0 +1,164 @@
+export type Maybe<T> = T | null;
+export type InputMaybe<T> = Maybe<T>;
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+/** All built-in and custom scalars, mapped to their actual values */
+export type Scalars = {
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
+  DateTime: { input: any; output: any; }
+  Decimal: { input: any; output: any; }
+};
+
+export type AccessNodeInput = {
+  id: InputMaybe<Scalars['ID']['input']>;
+  password: Scalars['String']['input'];
+  slug: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ApplyCouponInput = {
+  code: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum CollectionType {
+  /** @deprecated This is no longer supported */
+  Bundle = 'BUNDLE',
+  Designer = 'DESIGNER',
+  Family = 'FAMILY',
+  Superfamily = 'SUPERFAMILY'
+}
+
+export type CreateLibraryStripeCheckoutSessionInput = {
+  /** Which Stripe subscription billing period? "month" or "year". Only used when creating a new subscription. */
+  billingPeriod: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateOrderItemsInput = {
+  licenseSelections: Array<InputMaybe<LicenseSelectionInput>>;
+  licenseeIsBillingIdentity: InputMaybe<Scalars['Boolean']['input']>;
+  orderVariableSelections: InputMaybe<Array<OrderVariableSelectionInput>>;
+  skuIds: Array<InputMaybe<Scalars['ID']['input']>>;
+};
+
+export type ExchangeLoginTokenInput = {
+  loginToken: Scalars['String']['input'];
+};
+
+export type FontCollectionOrder = {
+  direction: InputMaybe<OrderDirection>;
+  field: InputMaybe<FontCollectionOrderField>;
+};
+
+export enum FontCollectionOrderField {
+  IsNew = 'IS_NEW',
+  Position = 'POSITION'
+}
+
+export type IdentityInput = {
+  administrativeArea: InputMaybe<Scalars['String']['input']>;
+  country: Scalars['String']['input'];
+  email: Scalars['String']['input'];
+  locality: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  organization: InputMaybe<Scalars['String']['input']>;
+  phone: InputMaybe<Scalars['String']['input']>;
+  sortingCode: InputMaybe<Scalars['String']['input']>;
+  street: InputMaybe<Scalars['String']['input']>;
+  sublocality: InputMaybe<Scalars['String']['input']>;
+  vatNumber: InputMaybe<Scalars['String']['input']>;
+  zip: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LicenseOptionsSpec = {
+  licenseId: Scalars['ID']['input'];
+  licenseOptionIds: InputMaybe<Array<Scalars['ID']['input']>>;
+};
+
+export type LicenseSelectionInput = {
+  id: InputMaybe<Scalars['ID']['input']>;
+  licenseId: Scalars['ID']['input'];
+  licenseOptionId: InputMaybe<Scalars['ID']['input']>;
+  licenseVariableId: InputMaybe<Scalars['ID']['input']>;
+  variableText: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum LicenseType {
+  Retail = 'RETAIL',
+  Special = 'SPECIAL',
+  Test = 'TEST'
+}
+
+export type LoginInput = {
+  email: InputMaybe<Scalars['String']['input']>;
+  name: InputMaybe<Scalars['String']['input']>;
+  newsletterOptIn: InputMaybe<Scalars['Boolean']['input']>;
+  target: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum NameFormat {
+  Default = 'DEFAULT',
+  Localized = 'LOCALIZED'
+}
+
+export enum OrderDirection {
+  Asc = 'ASC',
+  Desc = 'DESC'
+}
+
+export type OrderItemInput = {
+  id: Scalars['ID']['input'];
+  licenseSelections: Array<InputMaybe<LicenseSelectionInput>>;
+};
+
+export type OrderVariableSelectionInput = {
+  countryCode: InputMaybe<Scalars['String']['input']>;
+  orderVariableId: Scalars['ID']['input'];
+  orderVariableOptionId: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type RefreshAccessTokenInput = {
+  refreshToken: Scalars['String']['input'];
+};
+
+export enum Separator {
+  Comma = 'COMMA',
+  Newline = 'NEWLINE',
+  Whitespace = 'WHITESPACE'
+}
+
+export type StartLibraryStripeSubscriptionTrialInput = {
+  /** Which Stripe subscription billing period? "month" or "year" */
+  billingPeriod: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum TextFormat {
+  Html = 'HTML',
+  Markdown = 'MARKDOWN'
+}
+
+export type UpdateCustomerInput = {
+  email: InputMaybe<Scalars['String']['input']>;
+  name: InputMaybe<Scalars['String']['input']>;
+  newsletterOptIn: InputMaybe<Scalars['Boolean']['input']>;
+  recaptchaToken: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateOrderInput = {
+  billingIdentity: InputMaybe<IdentityInput>;
+  licenseeIdentity: InputMaybe<IdentityInput>;
+  licenseeIsBillingIdentity: InputMaybe<Scalars['Boolean']['input']>;
+  orderItems: InputMaybe<Array<InputMaybe<OrderItemInput>>>;
+  orderVariableSelections: InputMaybe<Array<OrderVariableSelectionInput>>;
+  stripePaymentMethodId: InputMaybe<Scalars['String']['input']>;
+};
+
+export type RootLayoutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type RootLayoutQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string } | null } | null> | null } | null, pages: { edges: Array<{ node: { id: string, title: string | null, slug: { name: string | null } | null } | null } | null> | null } | null, settings: { title: string | null, footerText: string | null, htmlHead: string | null, faviconMarkup: string | null, uiFontStyle: { name: string, cssFamily: string | null, webfontSources: Array<{ url: string | null, format: string | null } | null> | null } | null } | null, logo: { url: string, meta: { width: number | null, height: number | null } } | null } };
