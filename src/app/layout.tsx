@@ -6,6 +6,7 @@ import { fetchGraphql } from "@/lib/graphql";
 import { RootLayoutQuery } from "../../operations-types";
 import Image from "next/image";
 import globals from "./styles/global.module.css";
+import Link from "next/link";
 
 
 const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
@@ -36,13 +37,15 @@ export default async function RootLayout({
                 <div className={globals.page}>
                     <FontdueProvider url={fontdueUrl}>
                         <header className={globals.header}>
-                            <Image
+                            <Link href="/">
+                                <Image
                                     src={viewer?.logo?.url!}
                                     alt="Logo"
                                     width={(viewer?.logo?.meta.width ?? 100) / 2}
                                     height={(viewer?.logo?.meta.height ?? 100) / 2}
                                     priority
                                 />
+                            </Link>
                             <nav  className={globals.nav}>
                             </nav>
                         </header>
