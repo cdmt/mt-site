@@ -17,7 +17,8 @@ export default function Home() {
                     
                     <a href="/" key={font?.id} className={styles.font_block}>
                         <div className={styles.font_block_aa}>Aa</div>
-                        <div>{font?.name}</div>
+                        <div className={styles.font_block_name}>{font?.name}</div>
+                        <div>Styles</div>
                     </a>
                 ))}
             </div>
