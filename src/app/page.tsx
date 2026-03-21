@@ -39,7 +39,7 @@ export default function Home() {
                                 <div className={page_styles.font_block_name}>{font.name}</div>
                             </FontStyle>
                             <div className={page_styles.font_block_styles}>
-                                {font.fontStyles?.length ?? 0} styles
+                                {font.fontStyles?.length ?? 0} {font.fontStyles?.length > 1 ? 'styles': 'style'}
                             </div>
                         </Link>
                     </div>

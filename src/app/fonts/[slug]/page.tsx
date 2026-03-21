@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
 import { fetchGraphql } from "@/lib/graphql";
 import { FontsQuery } from "../../../../operations-types";
+import CharacterViewer from "fontdue-js/CharacterViewer";
+import TypeTesters from "fontdue-js/TypeTesters";
+import FontStyle from "@/components/FontStyle";
+import styles from "../../styles/global.module.css"
 
 async function getData() {
     return fetchGraphql<FontsQuery>("Fonts.graphql");
@@ -24,15 +28,20 @@ export default async function FontPage({
 
     return (
         <div>
-            <h1>{font.name}</h1>
-            <p>{font.collectionType}</p>
-            {font.url ? (
-                <p>
-                    <a href={font.url} target="_blank" rel="noreferrer">
-                        View source
-                    </a>
-                </p>
-            ) : null}
+            <div>
+                <FontStyle
+                    familyName={font.featureStyle?.cssFamily}
+                    styleName={font.featureStyle?.name}
+                >
+                    <h1>{font.name}</h1>
+                </FontStyle>
+            </div>
+            <div className={styles.type_block}>
+                <TypeTesters collectionId={font.id} />
+            </div>
+            <div className={styles.type_block}>
+                <CharacterViewer collectionId={font.id} />
+            </div>    
         </div>
     );
 }

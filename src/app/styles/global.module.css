@@ -16,6 +16,9 @@
 
 .nav{
     border-bottom: 2px pink dashed;
-    /* border-top: 2px pink dashed; */
     margin-bottom: 20px; 
+}
+
+.type_block{
+    margin-bottom: 40px;
 }
