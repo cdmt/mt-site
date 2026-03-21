@@ -161,7 +161,7 @@ export type UpdateOrderInput = {
 export type FontsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FontsQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: any | null, slug: { name: string | null } | null } | null } | null> | null } | null } };
+export type FontsQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: any | null, fontStyles: Array<{ name: string }>, slug: { name: string | null } | null, featureStyle: { cssFamily: string | null, name: string, webfontSources: Array<{ format: string | null, url: string | null } | null> | null, family: { colors: Array<string> | null } | null } | null } | null } | null> | null } | null } };
 
 export type RootLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 

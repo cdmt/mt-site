@@ -1,17 +1,33 @@
-query Fonts {
-    viewer {
-        fontCollections(first: 20) {
-            edges {
-                node {
-                id
-                name
-                collectionType
-                url
-                isNew
-                opticalAdjustment
-                slug { name }
-                }
+query fonts {
+  viewer {
+    fontCollections(first: 20) {
+      edges {
+        node {
+          id
+          name
+          collectionType
+          url
+          isNew
+          opticalAdjustment
+          fontStyles {
+            name
+          }
+          slug {
+            name
+          }
+          featureStyle {
+            cssFamily
+            name
+            webfontSources {
+              format
+              url
             }
+            family {
+                colors
+              }
+          }
         }
+      }
     }
-} 
+  }
+}

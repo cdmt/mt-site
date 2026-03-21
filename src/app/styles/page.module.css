@@ -1,24 +1,30 @@
-.fonts {
+.home_fonts {
     display: flex;
     flex-wrap: wrap;
-    gap: 20;
+    gap: 15;
     justify-content: center;
 }
 .font_block{
     padding: 25px 30px;
     border: 1px grey dotted;
     border-radius: 10px;
-    text-decoration: none;
     box-shadow: 0px 0px 4px 0px #DFDFDF;
 
     &:hover{
         box-shadow: 0px 0px 0px 0px;
     }
 }
+.font_link{
+    text-decoration: none;
+    color: #000;
+}
 .font_block_aa{
-    font-size: 40px;
-    margin-bottom: 5px;
+    font-size: 65px;
 }
 .font_block_name{
-    font-size: 25px;
+    font-size: 30px;
+}
+
+.font_block_styles{
+    font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }

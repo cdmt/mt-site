@@ -1,7 +1,9 @@
-import styles from "./styles/page.module.css";
+import page_styles from "./styles/page.module.css";
 import { fetchGraphql } from "@/lib/graphql";
 import { FontsQuery } from "../../operations-types";
 import Link from "next/link";
+import FontStyle from "@/components/FontStyle";
+import PreloadWebfonts from "@/components/PreloadWebfonts";
 
 async function getData() {
   return fetchGraphql<FontsQuery>("Fonts.graphql");
@@ -16,17 +18,31 @@ const fonts =
 export default function Home() {
     return (
         <div>
-            <div className={styles.fonts}>
+            <div className={page_styles.home_fonts}>
                 {fonts.map((font) => (
-                    <Link
-                        href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"}
-                        key={font.id}
-                        className={styles.font_block}
-                    >
-                        <div className={styles.font_block_aa}>Aa</div>
-                        <div className={styles.font_block_name}>{font.name}</div>
-                        <div>Styles</div>
-                    </Link>
+                    <div key={font.id} className={page_styles.font_block}>
+                        <PreloadWebfonts style={font.featureStyle} />
+                        <Link
+                            href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"}
+                            className={page_styles.font_link}
+                        >
+                            <FontStyle
+                                familyName={font.featureStyle?.cssFamily}
+                                styleName={font.featureStyle?.name}
+                            >
+                                <div
+                                    className={page_styles.font_block_aa}
+                                    style={{ color: font.featureStyle?.family?.colors?.[0] ?? undefined }}
+                                >
+                                    Aa
+                                </div>
+                                <div className={page_styles.font_block_name}>{font.name}</div>
+                            </FontStyle>
+                            <div className={page_styles.font_block_styles}>
+                                {font.fontStyles?.length ?? 0} styles
+                            </div>
+                        </Link>
+                    </div>
                 ))}
             </div>
         </div>
