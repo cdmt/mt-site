@@ -23,8 +23,9 @@
 }
 .font_block_name{
     font-size: 30px;
+    margin-bottom: 20px;
 }
 
 .font_block_styles{
-    font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+    
 }

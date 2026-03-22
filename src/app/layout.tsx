@@ -7,6 +7,7 @@ import { RootLayoutQuery } from "../../operations-types";
 import Image from "next/image";
 import globals from "./styles/global.module.css";
 import Link from "next/link";
+import "./styles/globals.css";
 
 
 const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
