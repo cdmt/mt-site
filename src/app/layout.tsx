@@ -71,7 +71,7 @@ export default async function RootLayout({
                                                     }
                                                     key={page.slug?.name}
                                                 >
-                                                    <span>{page.slug?.name}</span>
+                                                    <span>{page.title}</span>
                                                 </Link>
                                             </li>
                                         ))}

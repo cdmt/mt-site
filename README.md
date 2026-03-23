@@ -16,6 +16,28 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact Form Email Setup
+
+The contact page posts to `/api/contact`, which sends email using SMTP.
+
+Create `.env.local` with:
+
+```bash
+SMTP_HOST=smtp.yourprovider.com
+SMTP_PORT=587
+SMTP_USER=your_smtp_username
+SMTP_PASS=your_smtp_password
+
+# Optional overrides
+CONTACT_TO_EMAIL=info@moretype.co.uk
+CONTACT_FROM_EMAIL=no-reply@moretype.co.uk
+```
+
+Notes:
+
+- `SMTP_PORT=465` uses secure SMTP (`secure: true`).
+- Any other port (for example `587`) uses STARTTLS (`secure: false`).
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

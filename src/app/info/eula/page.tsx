@@ -5,7 +5,7 @@ export default function EULA() {
     return(
         <div className={`${info_styles.info_page} ${info_styles.eula}`}>
             <section>
-                <h2>End User Licence Agreement (EULA)</h2>
+                <h3>End User Licence Agreement (EULA)</h3>
 
                 <p><strong>Effective Date:</strong>23/03/26<br />
                 <strong>Licensor:</strong> Moretype ("Moretype", "we", "us", or "our")</p>
@@ -17,7 +17,7 @@ export default function EULA() {
                 </p>
             </section>
             <section>
-                <h3>1. Grant of Licence</h3>
+                <h4>1. Grant of Licence</h4>
                 <p>
                     Subject to your compliance with this Agreement and payment of all applicable fees,
                     Moretype grants you a non-exclusive, non-transferable, non-sublicensable licence
@@ -26,7 +26,7 @@ export default function EULA() {
             </section>
 
             <section>
-                <h3>2. Desktop Licence</h3>
+                <h4>2. Desktop Licence</h4>
                 <p>The Desktop Licence permits you to:</p>
                 <ul className="">
                     <li>Install the Font Software on a specified number of computers (as defined by your licence purchase)</li>
@@ -47,7 +47,7 @@ export default function EULA() {
             </section>
 
             <section >
-                <h3>3. Web Licence</h3>
+                <h4>3. Web Licence</h4>
                 <p>The Web Licence permits you to:</p>
                 <ul className="">
                     <li>Use the Font Software on websites via @font-face embedding</li>
@@ -63,7 +63,7 @@ export default function EULA() {
             </section>
 
             <section>
-                <h3>4. App Licence</h3>
+                <h4>4. App Licence</h4>
                 <p>The App Licence permits you to:</p>
                 <ul className="">
                     <li>Embed the Font Software within mobile, desktop, or web applications</li>
@@ -78,7 +78,7 @@ export default function EULA() {
             </section>
 
             <section>
-                <h3>5. Trial and Evaluation Use</h3>
+                <h4>5. Trial and Evaluation Use</h4>
                 <p>Where the Font Software is provided for trial or evaluation:</p>
                 <ul className="">
                     <li>Use is limited to internal, non-commercial purposes only</li>
@@ -88,7 +88,7 @@ export default function EULA() {
             </section>
 
             <section>
-                <h3>6. Restrictions</h3>
+                <h4>6. Restrictions</h4>
                 <p>
                     You must not:
                 </p>
@@ -101,21 +101,21 @@ export default function EULA() {
             </section>
 
             <section>
-                <h3>7. Intellectual Property</h3>
+                <h4>7. Intellectual Property</h4>
                 <p>
                     The Font Software is licensed, not sold. Moretype retains all intellectual property rights in the Font Software, including (without limitation) copyright, design rights, and any related rights under applicable law.
                 </p>
             </section>
 
             <section>
-                <h3>8. Backup Copies</h3>
+                <h4>8. Backup Copies</h4>
                 <p>
                     You may make a reasonable number of backup copies of the Font Software solely for archival purposes.
                 </p>
             </section>
 
             <section>
-                <h3>9. Termination</h3>
+                <h4>9. Termination</h4>
                 <p>
                     This Agreement shall remain in effect until terminated.
                 </p>
@@ -129,19 +129,19 @@ export default function EULA() {
             </section>
 
             <section>
-                <h3>10. Consumer Rights (UK)</h3>
+                <h4>10. Consumer Rights (UK)</h4>
                 <p>
                     Nothing in this Agreement excludes or limits any rights you may have under applicable UK consumer protection laws, including the Consumer Rights Act 2015, where you are acting as a consumer.
                 </p>
             </section>
 
             <section>
-                <h3>11. Disclaimer of Warranties</h3>
+                <h4>11. Disclaimer of Warranties</h4>
                 <p>To the extent permitted by law, the Font Software is provided "as is" and without warranties of any kind, whether express or implied, including (but not limited to) fitness for a particular purpose, satisfactory quality, or non-infringement.</p>
             </section>
 
             <section>
-                <h3>12. Limitation of Liability</h3>
+                <h4>12. Limitation of Liability</h4>
                 <p>Nothing in this Agreement excludes or limits liability for:</p>
                 <ul>
                     <li>Death or personal injury caused by negligence</li>
@@ -157,21 +157,21 @@ export default function EULA() {
                 <p>arising out of or in connection with the use of the Font Software.</p>
             </section>
             <section>
-                <h3>13. Governing Law and Jurisdiction</h3>
+                <h4>13. Governing Law and Jurisdiction</h4>
                 <p>This Agreement and any dispute or claim arising out of or in connection with it shall be governed by and construed in accordance with the laws of England and Wales.</p>
                 <p>The courts of England and Wales shall have exclusive jurisdiction, except where you are a consumer resident in another part of the United Kingdom, in which case you may bring proceedings in your local courts.</p>
             </section>
             <section>
-                <h3>14. Entire Agreement</h3>
+                <h4>14. Entire Agreement</h4>
                 <p>This Agreement constitutes the entire agreement between you and Moretype relating to the Font Software and supersedes all prior agreements or understandings.</p>
             </section>
             <section>
-                <h3>15. Contact</h3>
+                <h4>15. Contact</h4>
                 <p>For licensing enquiries, please contact:</p>
                 <p>info@moretype.co.uk</p>
             </section>
             <section>
-                <h3>By installing or using the Font Software, you confirm that you have read, understood, and agree to be bound by this Agreement.</h3>
+                <h4>By installing or using the Font Software, you confirm that you have read, understood, and agree to be bound by this Agreement.</h4>
             </section>
         </div>
     )

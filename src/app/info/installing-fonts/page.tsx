@@ -18,8 +18,8 @@ export default function InstallFonts() {
                 </ul>
             </section>
             <section>
-                <h2>Install Fonts on a Mac</h2>
-                <h3>Add files to the Fonts Folder</h3>
+                <h3>Install Fonts on a Mac</h3>
+                <h4>Add files to the Fonts Folder</h4>
                 <ul>
                     <li>Drag the font files from your desktop to your account Fonts folder.</li>
                     <li>The account fonts folder is at Username {">"} Library {">"} Fonts.</li>
@@ -28,7 +28,7 @@ export default function InstallFonts() {
                     <li>The HD Font folder is at Macintosh HD {">"} Library {">"} Fonts.</li>
                     <li>The font will then be available to all users.,</li>
                 </ul>
-                <h3>Add Fonts with Font Book</h3>
+                <h4>Add Fonts with Font Book</h4>
                 <ul>
                     <li>Font Book is free with Mac OSX.</li>
                     <li>Simple double click the font files on your desktop.</li>
@@ -37,7 +37,7 @@ export default function InstallFonts() {
                 Further information about installing fonts on a Mac can be found here.
             </section>
             <section>
-                <h2>Install Fonts on a PC</h2>
+                <h3>Install Fonts on a PC</h3>
                 <ul>
                     <li>Unpack the zip folder that you downloaded.</li>
                     <li>Go to the folder with the fonts and search for the .OTF or .TTF file (we recommend you always install the OTF file if available).</li>
