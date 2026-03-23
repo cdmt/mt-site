@@ -1,3 +1,8 @@
+.sub_nav{
+    border-bottom: 1px dotted #ddd;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
 @media(min-width: 800px){
     .info_page{
         width: 60%;

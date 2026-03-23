@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import styles from "../styles/contact.module.css";
 import info_styles from "../styles/info.module.css"
+import global_styles from "../styles/global.module.css"
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
@@ -47,7 +48,7 @@ export default function ContactPage() {
     }
 
     return (
-        <section className={info_styles.info_page}>
+        <section className={`${info_styles.info_page} ${global_styles.page_wrap}`}>
             <p className={styles.subtitle}>Send us a message and we will get back to you.</p>
 
             <form className={styles.form} onSubmit={onSubmit}>
