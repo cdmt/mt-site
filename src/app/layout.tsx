@@ -8,6 +8,7 @@ import Image from "next/image";
 import globals from "./styles/global.module.css";
 import Link from "next/link";
 import "./styles/globals.css";
+import Footer from "@/components/Footer";
 
 
 const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
@@ -52,9 +53,7 @@ export default async function RootLayout({
                         </header>
                         <main className={globals.main}>{children}</main>
                         <StoreModal />
-                        <footer className={globals.footer}>
-                            <p>{viewer.settings?.footerText}</p>
-                        </footer>
+                        <Footer/>
                     </FontdueProvider>
                 </div>  
             </body>
