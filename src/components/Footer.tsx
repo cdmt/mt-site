@@ -13,6 +13,10 @@ const fonts =
     viewer?.fontCollections?.edges?.flatMap(edge =>
         edge?.node ? [edge.node] : [],
     ) ?? [];
+const pages =
+    viewer?.pages?.edges?.flatMap(edge =>
+        edge?.node ? [edge.node] : [],
+    ) ?? [];    
 
 export default async function Footer() {
 
@@ -26,8 +30,29 @@ export default async function Footer() {
                         </Link>
                     ))}
                 </div>
-                <p>{viewer?.settings?.footerText}</p>
+                <div className={footer_styles.footer_pages}>
+                    {pages.map((page, index) => (
+                        <Link
+                            href={
+                                page.slug?.name
+                                    ? page.slug.name === "fonts"
+                                        ? "/"
+                                        : `/${page.slug.name}`
+                                    : "/"
+                            }
+                            key={page.slug?.name}
+                        >
+                            <p>{page.slug?.name}</p>
+                        </Link>
+                    ))}
+                </div>
+                <div className={footer_styles.footer_links}>
+                    <Link href="https://www.instagram.com/moretype/" target="_blank">
+                        <img src="/instagram.png" alt="instagram logo" />
+                    </Link>
+                </div>
             </div>
+            <p className={footer_styles.footer_copyright}>{viewer?.settings?.footerText}</p>
         </footer>
     );
 }

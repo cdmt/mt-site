@@ -1,9 +1,13 @@
 .footer_wrap{
     padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
 }
 .footer_fonts{
     width: 600px;
-    margin-bottom: 30px;
+
+}
+.footer_fonts, .footer_pages{
 
     a{
         color: #aaa;
@@ -11,5 +15,13 @@
         &:hover{
             color: #111;
         }
+    }
+}
+.footer_copyright{
+    margin-bottom: 20px;
+}
+.footer_links{
+    img{
+        width: 25px;
     }
 }

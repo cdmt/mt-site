@@ -29,7 +29,7 @@ query Footer {
         }
       }
     }
-    pages(first: 12) {
+    pages(first: 4) {
       edges {
         node {
           id
