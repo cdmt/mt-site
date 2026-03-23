@@ -8,10 +8,11 @@
     padding: 25px 30px;
     border: 1px grey dotted;
     border-radius: 10px;
-    box-shadow: 0px 0px 4px 0px #DFDFDF;
+    box-shadow: 0px 0px 4px 0px #c7c6c6;
 
     &:hover{
         box-shadow: 0px 0px 0px 0px;
+        cursor: pointer;
     }
 }
 .extra_block{
