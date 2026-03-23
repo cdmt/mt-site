@@ -1,0 +1,15 @@
+.footer_wrap{
+    padding: 30px 0;
+}
+.footer_fonts{
+    width: 600px;
+    margin-bottom: 30px;
+
+    a{
+        color: #aaa;
+
+        &:hover{
+            color: #111;
+        }
+    }
+}

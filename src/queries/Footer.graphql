@@ -1,6 +1,6 @@
 query Footer {
   viewer {
-    fontCollections(onlyRoots: true, first: 2) {
+    fontCollections(onlyRoots: true, first: 20) {
       edges {
         node {
           id
@@ -52,13 +52,6 @@ query Footer {
           url
           format
         }
-      }
-    }
-    logo {
-      url
-      meta {
-        width
-        height
       }
     }
   }
