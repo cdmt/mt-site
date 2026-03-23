@@ -6,6 +6,12 @@
     flex-direction: column;
 }
 
+@media (max-width: 1200px) {
+    .page {
+        margin: 0 20px;
+    }
+}
+
 .main{
     flex: 1;
 }

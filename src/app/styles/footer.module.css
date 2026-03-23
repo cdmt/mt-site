@@ -1,14 +1,10 @@
 .footer_wrap{
     padding: 30px 0;
-    display: flex;
     justify-content: space-between;
 }
-.footer_fonts{
-    width: 600px;
 
-}
 .footer_fonts, .footer_pages{
-
+    margin-bottom: 20px;
     a{
         color: #aaa;
 
@@ -16,6 +12,18 @@
             color: #111;
         }
     }
+}
+
+@media(min-width: 800px){
+   .footer_wrap{
+        display: flex;
+   }
+   .footer_fonts{
+        width: 600px;
+   }
+   .footer_fonts, .footer_pages{
+        margin-bottom: 0;
+   }
 }
 .footer_copyright{
     margin-bottom: 20px;
