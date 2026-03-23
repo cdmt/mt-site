@@ -9,6 +9,8 @@ import globals from "./styles/global.module.css";
 import Link from "next/link";
 import "./styles/globals.css";
 import Footer from "@/components/Footer";
+import CustomerLoginForm from "fontdue-js/CustomerLoginForm";
+import CartButton from "fontdue-js/CartButton";
 
 
 const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
@@ -17,6 +19,12 @@ const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
 async function getData() {
   return fetchGraphql<RootLayoutQuery>("RootLayout.graphql");
 }
+
+const { viewer } = await getData();
+const pages =
+    viewer?.pages?.edges?.flatMap(edge =>
+        edge?.node ? [edge.node] : [],
+    ) ?? [];    
 
 export const metadata: Metadata = {
     title: "Moretype",
@@ -48,7 +56,39 @@ export default async function RootLayout({
                                     priority
                                 />
                             </Link>
-                            <nav  className={globals.nav}>
+                            <nav className={globals.nav}>
+                                <div>
+                                    <ul className={globals.nav_site_links}>
+                                        {pages?.map((page, index) => (
+                                            <li key={page.slug?.name}>
+                                                <Link
+                                                    href={
+                                                        page.slug?.name
+                                                            ? page.slug.name === "fonts"
+                                                                ? "/"
+                                                                : `/${page.slug.name}`
+                                                            : "/"
+                                                    }
+                                                    key={page.slug?.name}
+                                                >
+                                                    <span>{page.slug?.name}</span>
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul className={globals.nav_site_links}>
+                                        <li>
+                                            <Link href={"customer-login"}>
+                                                <span>login</span>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <CartButton buttonStyle="icon" />
+                                        </li>
+                                    </ul>
+                                </div>
                             </nav>
                         </header>
                         <main className={globals.main}>{children}</main>

@@ -11,7 +11,10 @@
         margin: 0 20px;
     }
 }
-
+.header{
+    border-bottom: 2px pink dashed;
+    margin: 20px 0;
+}
 .main{
     flex: 1;
 }
@@ -22,8 +25,18 @@
 }
 
 .nav{
-    border-bottom: 2px pink dashed;
-    margin-bottom: 20px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_site_links{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 10px 0;
+    li{
+        margin-right: 10px;
+    }
 }
 
 .type_block{
