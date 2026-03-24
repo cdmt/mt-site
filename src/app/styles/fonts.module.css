@@ -1,0 +1,29 @@
+.style_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.style_row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.style_sample {
+    display: block;
+}
+
+.weight_aa{
+    text-align: center;
+    h3{
+        font-size: 120px;
+    }
+    p{
+        font-size: 20px;
+        margin-top: -10px;
+    }
+}
+
+.page_section{
+    margin-top: 30px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchGraphql } from "@/lib/graphql";
-import { FontsQuery } from "../../operations-types";
+import { FooterQuery } from "../../operations-types";
 import Link from "next/link";
 import FontStyle from "@/components/FontStyle";
 import PreloadWebfonts from "@/components/PreloadWebfonts";
@@ -9,7 +9,7 @@ import page_styles from "./styles/page.module.css";
 import global_styles from "./styles/global.module.css"
 
 async function getData() {
-  return fetchGraphql<FontsQuery>("Fonts.graphql");
+    return fetchGraphql<FooterQuery>("Footer.graphql");
 }
 
 const data = await getData();
@@ -47,12 +47,12 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    {index === 1 && (
+                    {/* {index === 1 && (
                         <div className={page_styles.extra_block}>
                             <p>New Font Ronnie</p> 
                             <p>coming soon</p>
                         </div>
-                    )}
+                    )} */}
                 </React.Fragment>
             ))}
         </div>

@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "moretype.fontdue.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.fontdue.com",
+      },
     ],
   },
 };

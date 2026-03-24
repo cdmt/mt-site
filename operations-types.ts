@@ -12,8 +12,8 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  DateTime: { input: unknown; output: unknown; }
-  Decimal: { input: unknown; output: unknown; }
+  DateTime: { input: any; output: any; }
+  Decimal: { input: any; output: any; }
 };
 
 export type AccessNodeInput = {
@@ -158,15 +158,21 @@ export type UpdateOrderInput = {
   stripePaymentMethodId: InputMaybe<Scalars['String']['input']>;
 };
 
-export type FontsQueryVariables = Exact<{ [key: string]: never; }>;
+export type FontDetailCollectionFragment = { id: string, name: string, collectionType: string, isVariableFont: boolean, cssUrl: string | null, sku: { id: string } | null, bundles: Array<{ sku: { id: string } | null }> | null, fontStyles: Array<{ name: string, cssFamily: string | null, cssWeight: string | null, cssStyle: string | null, sku: { id: string } | null, variableInstances: Array<{ name: string, coordinates: Array<{ axis: string, value: number }> }> | null }> };
+
+export type FontDetailFragment = { shortDescription: string | null, description: string | null, minisiteLink: string | null, id: string, name: string, collectionType: string, isVariableFont: boolean, cssUrl: string | null, pdfs: Array<{ url: string | null, thumbnailUrl: string | null, name: string | null } | null> | null, featureStyle: { cssFamily: string | null, name: string, family: { cssUrl: string | null } | null } | null, children: Array<{ id: string, name: string, collectionType: string, isVariableFont: boolean, cssUrl: string | null, sku: { id: string } | null, bundles: Array<{ sku: { id: string } | null }> | null, fontStyles: Array<{ name: string, cssFamily: string | null, cssWeight: string | null, cssStyle: string | null, sku: { id: string } | null, variableInstances: Array<{ name: string, coordinates: Array<{ axis: string, value: number }> }> | null }> }> | null, images: Array<{ url: string | null, description: string | null, meta: { mimeType: string | null, width: number | null, height: number | null } | null }> | null, sku: { id: string } | null, bundles: Array<{ sku: { id: string } | null }> | null, fontStyles: Array<{ name: string, cssFamily: string | null, cssWeight: string | null, cssStyle: string | null, sku: { id: string } | null, variableInstances: Array<{ name: string, coordinates: Array<{ axis: string, value: number }> }> | null }> };
+
+export type FontQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
 
 
-export type FontsQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: unknown | null, fontStyles: Array<{ name: string }>, slug: { name: string | null } | null, featureStyle: { cssFamily: string | null, name: string, webfontSources: Array<{ format: string | null, url: string | null } | null> | null, family: { colors: Array<string> | null } | null } | null } | null } | null> | null } | null } };
+export type FontQuery = { viewer: { slug: { fontCollection: { shortDescription: string | null, description: string | null, minisiteLink: string | null, id: string, name: string, collectionType: string, isVariableFont: boolean, cssUrl: string | null, pageMetadata: { title: string | null, description: string | null, keywords: string | null } | null, pdfs: Array<{ url: string | null, thumbnailUrl: string | null, name: string | null } | null> | null, featureStyle: { cssFamily: string | null, name: string, family: { cssUrl: string | null } | null } | null, children: Array<{ id: string, name: string, collectionType: string, isVariableFont: boolean, cssUrl: string | null, sku: { id: string } | null, bundles: Array<{ sku: { id: string } | null }> | null, fontStyles: Array<{ name: string, cssFamily: string | null, cssWeight: string | null, cssStyle: string | null, sku: { id: string } | null, variableInstances: Array<{ name: string, coordinates: Array<{ axis: string, value: number }> }> | null }> }> | null, images: Array<{ url: string | null, description: string | null, meta: { mimeType: string | null, width: number | null, height: number | null } | null }> | null, sku: { id: string } | null, bundles: Array<{ sku: { id: string } | null }> | null, fontStyles: Array<{ name: string, cssFamily: string | null, cssWeight: string | null, cssStyle: string | null, sku: { id: string } | null, variableInstances: Array<{ name: string, coordinates: Array<{ axis: string, value: number }> }> | null }> } | null } | null } };
 
 export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FooterQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: unknown | null, fontStyles: Array<{ name: string }>, slug: { name: string | null } | null, featureStyle: { cssFamily: string | null, name: string, webfontSources: Array<{ format: string | null, url: string | null } | null> | null, family: { colors: Array<string> | null } | null } | null } | null } | null> | null } | null, pages: { edges: Array<{ node: { id: string, title: string | null, slug: { name: string | null } | null } | null } | null> | null } | null, settings: { title: string | null, footerText: string | null, htmlHead: string | null, faviconMarkup: string | null, uiFontStyle: { name: string, cssFamily: string | null, webfontSources: Array<{ url: string | null, format: string | null } | null> | null } | null } | null } };
+export type FooterQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: any | null, fontStyles: Array<{ name: string }>, slug: { name: string | null } | null, featureStyle: { cssFamily: string | null, name: string, webfontSources: Array<{ format: string | null, url: string | null } | null> | null, family: { colors: Array<string> | null } | null } | null } | null } | null> | null } | null, pages: { edges: Array<{ node: { id: string, title: string | null, slug: { name: string | null } | null } | null } | null> | null } | null, settings: { title: string | null, footerText: string | null, htmlHead: string | null, faviconMarkup: string | null, uiFontStyle: { name: string, cssFamily: string | null, webfontSources: Array<{ url: string | null, format: string | null } | null> | null } | null } | null } };
 
 export type RootLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
