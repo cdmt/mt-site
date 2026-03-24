@@ -37,6 +37,15 @@ export default async function FontPage({
         (row) => row.length > 0
     );
 
+    const imageSectionStyle = font.colors?.length
+        ? {
+              background:
+                  font.colors.length === 1
+                      ? font.colors[0]
+                      : `linear-gradient(135deg, ${font.colors.join(", ")})`,
+          }
+        : undefined;
+
     return (
         <div className={font_styles.page_wrap}>
             <section className={font_styles.page_section}>
@@ -66,7 +75,7 @@ export default async function FontPage({
                     </div>
                 ))}
             </section>
-            <section className={font_styles.page_section}>
+            <section className={font_styles.page_section} style={imageSectionStyle}>
                 {image?.[0]?.url && (
                     <Image
                         src={image[0].url}
