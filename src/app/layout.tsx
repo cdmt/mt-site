@@ -9,7 +9,6 @@ import globals from "./styles/global.module.css";
 import Link from "next/link";
 import "./styles/globals.css";
 import Footer from "@/components/Footer";
-import CustomerLoginForm from "fontdue-js/CustomerLoginForm";
 import CartButton from "fontdue-js/CartButton";
 
 
@@ -21,10 +20,10 @@ async function getData() {
 }
 
 const { viewer } = await getData();
-const pages =
-    viewer?.pages?.edges?.flatMap(edge =>
-        edge?.node ? [edge.node] : [],
-    ) ?? [];    
+// const pages =
+//     viewer?.pages?.edges?.flatMap(edge =>
+//         edge?.node ? [edge.node] : [],
+//     ) ?? [];    
 
 export const metadata: Metadata = {
     title: "Moretype",
@@ -59,7 +58,7 @@ export default async function RootLayout({
                             <nav className={globals.nav}>
                                 <div>
                                     <ul className={globals.nav_site_links}>
-                                        {pages?.map((page, index) => (
+                                        {pages?.map((page) => (
                                             <li key={page.slug?.name}>
                                                 <Link
                                                     href={

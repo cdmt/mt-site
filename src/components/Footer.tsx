@@ -1,6 +1,7 @@
 import globals from "@/app/styles/global.module.css";
 import { fetchGraphql } from "@/lib/graphql";
 import { FooterQuery } from "../../operations-types";
+import Image from "next/image";
 import Link from "next/link";
 import footer_styles from '../app/styles/footer.module.css'
 
@@ -24,14 +25,14 @@ export default async function Footer() {
         <footer className={globals.footer}>
             <div className={footer_styles.footer_wrap}>
                 <div className={footer_styles.footer_fonts}>
-                    {fonts.map((font, index) => (
+                    {fonts.map((font) => (
                         <Link href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"} key={font.slug?.name}>
                             {font.name} •{' '}
                         </Link>
                     ))}
                 </div>
                 <div className={footer_styles.footer_pages}>
-                    {pages.map((page, index) => (
+                    {pages.map((page) => (
                         <Link
                             href={
                                 page.slug?.name
@@ -48,7 +49,7 @@ export default async function Footer() {
                 </div>
                 <div className={footer_styles.footer_links}>
                     <Link href="https://www.instagram.com/moretype/" target="_blank">
-                        <img src="/instagram.png" alt="instagram logo" />
+                        <Image src="/instagram.png" alt="instagram logo" width={24} height={24} />
                     </Link>
                 </div>
             </div>

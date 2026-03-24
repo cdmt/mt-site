@@ -8,9 +8,9 @@ export default function EULA() {
                 <h3>End User Licence Agreement (EULA)</h3>
 
                 <p><strong>Effective Date:</strong>23/03/26<br />
-                <strong>Licensor:</strong> Moretype ("Moretype", "we", "us", or "our")</p>
+                <strong>Licensor:</strong> Moretype (Moretype&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;)</p>
                 <p>
-                    This End User License Agreement ("Agreement") is a legal agreement between you ("Licensee", "you", or "your") and Moretype governing your use of the font software provided by Moretype ("Font Software").  
+                    This End User License Agreement (&quot;Agreement&quot;) is a legal agreement between you (&quot;Licensee&quot;, &quot;you&quot;, or &quot;your&quot;) and Moretype governing your use of the font software provided by Moretype (&quot;Font Software&quot;).  
                 </p>
                 <p>
                     By installing, accessing, or using the Font Software, you agree to be bound by the terms of this Agreement.
@@ -137,7 +137,7 @@ export default function EULA() {
 
             <section>
                 <h4>11. Disclaimer of Warranties</h4>
-                <p>To the extent permitted by law, the Font Software is provided "as is" and without warranties of any kind, whether express or implied, including (but not limited to) fitness for a particular purpose, satisfactory quality, or non-infringement.</p>
+                <p>To the extent permitted by law, the Font Software is provided &quot;as is&quot; and without warranties of any kind, whether express or implied, including (but not limited to) fitness for a particular purpose, satisfactory quality, or non-infringement.</p>
             </section>
 
             <section>

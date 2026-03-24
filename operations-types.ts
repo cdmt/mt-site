@@ -12,8 +12,8 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  DateTime: { input: any; output: any; }
-  Decimal: { input: any; output: any; }
+  DateTime: { input: unknown; output: unknown; }
+  Decimal: { input: unknown; output: unknown; }
 };
 
 export type AccessNodeInput = {
@@ -161,12 +161,12 @@ export type UpdateOrderInput = {
 export type FontsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FontsQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: any | null, fontStyles: Array<{ name: string }>, slug: { name: string | null } | null, featureStyle: { cssFamily: string | null, name: string, webfontSources: Array<{ format: string | null, url: string | null } | null> | null, family: { colors: Array<string> | null } | null } | null } | null } | null> | null } | null } };
+export type FontsQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: unknown | null, fontStyles: Array<{ name: string }>, slug: { name: string | null } | null, featureStyle: { cssFamily: string | null, name: string, webfontSources: Array<{ format: string | null, url: string | null } | null> | null, family: { colors: Array<string> | null } | null } | null } | null } | null> | null } | null } };
 
 export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FooterQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: any | null, fontStyles: Array<{ name: string }>, slug: { name: string | null } | null, featureStyle: { cssFamily: string | null, name: string, webfontSources: Array<{ format: string | null, url: string | null } | null> | null, family: { colors: Array<string> | null } | null } | null } | null } | null> | null } | null, pages: { edges: Array<{ node: { id: string, title: string | null, slug: { name: string | null } | null } | null } | null> | null } | null, settings: { title: string | null, footerText: string | null, htmlHead: string | null, faviconMarkup: string | null, uiFontStyle: { name: string, cssFamily: string | null, webfontSources: Array<{ url: string | null, format: string | null } | null> | null } | null } | null } };
+export type FooterQuery = { viewer: { fontCollections: { edges: Array<{ node: { id: string, name: string, collectionType: string, url: string | null, isNew: boolean | null, opticalAdjustment: unknown | null, fontStyles: Array<{ name: string }>, slug: { name: string | null } | null, featureStyle: { cssFamily: string | null, name: string, webfontSources: Array<{ format: string | null, url: string | null } | null> | null, family: { colors: Array<string> | null } | null } | null } | null } | null> | null } | null, pages: { edges: Array<{ node: { id: string, title: string | null, slug: { name: string | null } | null } | null } | null> | null } | null, settings: { title: string | null, footerText: string | null, htmlHead: string | null, faviconMarkup: string | null, uiFontStyle: { name: string, cssFamily: string | null, webfontSources: Array<{ url: string | null, format: string | null } | null> | null } | null } | null } };
 
 export type RootLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
