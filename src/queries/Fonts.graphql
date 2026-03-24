@@ -35,6 +35,14 @@ fragment FontDetail on FontCollection {
   ...FontDetailCollection
   shortDescription
   description
+  designYear
+  designers {
+    name
+  }
+  glyphGroups {
+    name
+  }
+  languages
   pdfs {
     url
     thumbnailUrl
@@ -42,7 +50,14 @@ fragment FontDetail on FontCollection {
   }
   featureStyle {
     cssFamily
+    glyphNames {
+      name
+    }
     name
+    supportedLanguages
+    webfontSources {
+      format
+    }
     family {
       cssUrl
     }

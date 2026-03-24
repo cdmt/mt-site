@@ -5,7 +5,6 @@ import { FontQuery, FontQueryVariables } from "../../../../operations-types";
 import CharacterViewer from "fontdue-js/CharacterViewer";
 import TypeTesters from "fontdue-js/TypeTesters";
 import FontStyle from "@/components/FontStyle";
-import styles from "../../styles/global.module.css"
 import font_styles from "../../styles/fonts.module.css"
 
 async function getData(slug: string) {
@@ -36,7 +35,20 @@ export default async function FontPage({
     const styleRows = [regularStyles, italicStyles].filter(
         (row) => row.length > 0
     );
-
+    const designerNames = font.designers?.map((designer) => designer.name).join(", ") || "Not available";
+    const glyphCount = font.featureStyle?.glyphNames?.length;
+    const fileFormats = [
+        "OpenType",
+        ...(font.featureStyle?.webfontSources
+            ?.map((source) => source?.format)
+            .filter((format): format is string => Boolean(format)) ?? []),
+    ].filter((format, index, allFormats) => allFormats.indexOf(format) === index);
+    const supportedLanguages =
+        font.featureStyle?.supportedLanguages?.length
+            ? font.featureStyle.supportedLanguages.join(", ")
+            : font.languages?.length
+              ? font.languages.join(", ")
+              : "Not available";
     const imageSectionStyle = font.colors?.length
         ? {
               background:
@@ -75,21 +87,72 @@ export default async function FontPage({
                     </div>
                 ))}
             </section>
-            <section className={font_styles.page_section} style={imageSectionStyle}>
-                {image?.[0]?.url && (
-                    <Image
-                        src={image[0].url}
-                        alt={image[0].description ?? ""}
-                        width={image[0].meta?.width ?? 0}
-                        height={image[0].meta?.height ?? 0}
-                        style={{ width: "100%", height: "auto" }}
-                    />
-                )}
+            <section
+                className={`${font_styles.page_section} ${font_styles.image_section_full_bleed}`}
+                style={imageSectionStyle}
+            >
+                <div className={font_styles.image_section_inner}>
+                    {image?.[0]?.url && (
+                        <Image
+                            src={image[0].url}
+                            alt={image[0].description ?? ""}
+                            width={image[0].meta?.width ?? 0}
+                            height={image[0].meta?.height ?? 0}
+                            style={{ width: "100%", height: "auto" }}
+                        />
+                    )}
+                </div>
             </section>
-            <section  className={font_styles.page_section}>
+            <section className={font_styles.page_section}>
                 <TypeTesters collectionId={font.id} />
             </section>
-            <section  className={font_styles.page_section}>
+            <section className={`${font_styles.page_section} ${font_styles.font_info_full_bleed}`}>
+                <div className={font_styles.font_info_inner}>
+                <dl className={font_styles.font_info_grid}>
+                    <div>
+                        <dt>Designed by:</dt>
+                        <dd>{designerNames}</dd>
+                    </div>
+                    <div>
+                        <dt>Year:</dt>
+                        <dd>{font.designYear || "Not available"}</dd>
+                    </div>
+                    <div>
+                        <dt>Glyphs:</dt>
+                        <dd>{glyphCount ?? "Not available"}</dd>
+                    </div>
+                    <div>
+                        <dt>Encoding:</dt>
+                        <dd>Latin Extended</dd>
+                    </div>
+                    <div>
+                        <dt>File Formats:</dt>
+                        <dd>{fileFormats.join(", ")}</dd>
+                    </div>
+                    <div>
+                        <dt>Supported languages:</dt>
+                        <dd>{supportedLanguages}</dd>
+                    </div>
+                    <div>
+                        <dt>PDF:</dt>
+                        <dd className={font_styles.pdf_links}>
+                            {font.pdfs?.length ? (
+                                font.pdfs.map((pdf, index) =>
+                                    pdf?.url ? (
+                                        <a key={pdf.url} href={pdf.url} target="_blank" rel="noreferrer">
+                                            {pdf.name || `PDF ${index + 1}`}
+                                        </a>
+                                    ) : null
+                                )
+                            ) : (
+                                <span>Not available</span>
+                            )}
+                        </dd>
+                    </div>
+                </dl>
+                </div>
+            </section>
+            <section className={font_styles.page_section}>
                 <CharacterViewer collectionId={font.id} />
             </section>    
         </div>
