@@ -1,3 +1,5 @@
+@import "./variables.module.css";
+
 .page{
     min-height: 100vh;
     max-width: 1200px;
@@ -15,7 +17,7 @@
     margin-top: 20px;
 }
 .header{
-    border-bottom: 2px pink dashed;
+    border-bottom: 2px var(--pink-line) dashed;
     margin-top: 20px;
 }
 .main{

@@ -1,3 +1,5 @@
+@import "./variables.module.css";
+
 /*--reset--*/
 *, *::before, *::after {
     box-sizing: border-box;
@@ -12,6 +14,7 @@ body {
     -webkit-font-smoothing: antialiased;
     font-family: "Alber New", sans-serif;
     font-size: 16px;
+    color:var(--text-color);
 }
 
 img, picture, video, canvas, svg {

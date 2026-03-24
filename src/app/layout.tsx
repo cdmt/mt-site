@@ -80,7 +80,7 @@ export default async function RootLayout({
                                 <div>
                                     <ul className={globals.nav_site_links}>
                                         <li>
-                                            <Link href={"customer-login"}>
+                                            <Link href={"/customer-login"}>
                                                 <span>login</span>
                                             </Link>
                                         </li>
