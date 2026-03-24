@@ -6,6 +6,8 @@ import useFontStyle from "fontdue-js/useFontStyle";
 interface FontStyle_props {
   familyName: string | null | undefined;
   styleName: string | null | undefined;
+  fontWeight?: string | number | null;
+  fontStyle?: React.CSSProperties["fontStyle"] | null;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }
@@ -13,18 +15,31 @@ interface FontStyle_props {
 export default function FontStyle({
   familyName,
   styleName,
+  fontWeight,
+  fontStyle,
   style: styleProp,
   children,
   ...rest
 }: FontStyle_props & React.HTMLAttributes<HTMLSpanElement>) {
+  const resolvedFontWeight =
+    typeof fontWeight === "number" ? String(fontWeight) : fontWeight ?? "400";
+
   const { style } = useFontStyle({
     fontFamily: `${familyName} ${styleName}`,
-    fontWeight: "400",
-    fontStyle: "normal",
+    fontWeight: resolvedFontWeight,
+    fontStyle: fontStyle ?? "normal",
   });
 
   return (
-    <span style={{ ...style, ...styleProp }} {...rest}>
+    <span
+      style={{
+        ...style,
+        fontWeight: fontWeight ?? style.fontWeight,
+        fontStyle: fontStyle ?? style.fontStyle,
+        ...styleProp,
+      }}
+      {...rest}
+    >
       {children}
     </span>
   );

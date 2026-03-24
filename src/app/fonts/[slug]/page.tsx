@@ -33,9 +33,6 @@ export default async function FontPage({
     const italicStyles = font.fontStyles.filter((style) =>
         style.name.toLowerCase().includes("italic")
     );
-    const styleRows = [regularStyles, italicStyles].filter(
-        (row) => row.length > 0
-    );
     const designerNames = font.designers?.map((designer) => designer.name).join(", ") || "Not available";
     const glyphCount = font.featureStyle?.glyphNames?.length;
     const fileFormats = [
@@ -61,22 +58,24 @@ export default async function FontPage({
 
     return (
         <div className={font_styles.page_wrap}>
-            <section className={font_styles.page_section}>
+            <section>
                 <FontStyle
                     familyName={font.featureStyle?.cssFamily}
                     styleName={font.featureStyle?.name}
                 >
-                    <h1>{font.name}</h1>
+                    <h2 className={font_styles.font_title}>{font.name}</h2>
                 </FontStyle>
             </section>
             <section className={`${font_styles.style_list} ${font_styles.page_section}`}>
-                {styleRows.map((row, index) => (
-                    <div key={index} className={font_styles.style_row}>
-                        {row.map((style) => (
+                {regularStyles.length > 0 && (
+                    <div className={font_styles.style_row}>
+                        {regularStyles.map((style) => (
                             <FontStyle
                                 key={style.name}
                                 familyName={style.cssFamily}
                                 styleName={style.name}
+                                fontWeight={style.cssWeight}
+                                fontStyle={style.cssStyle ?? "normal"}
                                 className={font_styles.style_sample}
                             >
                                 <div className={font_styles.weight_aa}>
@@ -86,7 +85,26 @@ export default async function FontPage({
                             </FontStyle>
                         ))}
                     </div>
-                ))}
+                )}
+                {italicStyles.length > 0 && (
+                    <div className={font_styles.style_row}>
+                        {italicStyles.map((style) => (
+                            <FontStyle
+                                key={style.name}
+                                familyName={style.cssFamily}
+                                styleName={style.name}
+                                fontWeight={style.cssWeight}
+                                fontStyle={style.cssStyle ?? "normal"}
+                                className={font_styles.style_sample}
+                            >
+                                <div className={font_styles.weight_aa}>
+                                    <h3>Aa</h3>
+                                    <p>{style.name}</p>
+                                </div>
+                            </FontStyle>
+                        ))}
+                    </div>
+                )}
             </section>
             <section
                 className={`${font_styles.page_section} ${font_styles.image_section_full_bleed}`}

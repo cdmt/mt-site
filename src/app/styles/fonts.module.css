@@ -1,3 +1,9 @@
+@import "./variables.module.css";
+
+.page_wrap{
+    margin-top: 20px;
+}
+
 .style_list {
     display: flex;
     flex-direction: column;
@@ -6,26 +12,43 @@
 .style_row {
     display: flex;
     flex-wrap: wrap;
-    gap: 22px;
 }
 
 .style_sample {
     display: block;
 }
 
+.font_title {
+    font-weight: inherit;
+    font-style: inherit;
+}
+
 .weight_aa{
     text-align: center;
+    margin-right: 10px;
     h3{
-        font-size: 120px;
+        font-size: 80px;
+        font-weight: inherit;
+        font-style: inherit;
     }
     p{
         font-size: 20px;
         margin-top: -10px;
+        font-weight: inherit;
+        font-style: inherit;
     }
 }
 
+@media(min-width: 800px){
+    .weight_aa{
+        h3{
+            font-size: 120px;
+        }
+    }        
+}
+
 .page_section{
-    /* margin-bottom: 30px; */
+    margin-bottom: var(--page-spacing);
 }
 
 .font_info {

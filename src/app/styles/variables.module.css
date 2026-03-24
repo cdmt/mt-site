@@ -1,5 +1,6 @@
 :root {
-    --text-color: #36454F;
+    --text-color: #000;
     --pink-line: #FF58C0;
     --border-color: #ddd;
+    --page-spacing: 35px;
 }
