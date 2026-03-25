@@ -37,12 +37,18 @@
 
 .button {
     margin-top: 20px;
-    border: 1px solid #111;
-    background: #111;
+    border: none;
+    background: var(--button-color);
     color: #fff;
     border-radius: var(--border-radius);
-    padding: 12px 16px;
+    padding: 10px 16px;
     width: fit-content;
+    cursor: pointer;
+    
+    &:hover{
+        background: var(--button-hover-color);
+        color: #000;
+    }
 }
 
 .button:disabled {
@@ -56,4 +62,14 @@
 
 .error {
     color: #b20000;
+}
+.email{
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 18px;
+    text-decoration: underline;
+    &:hover{
+        color: val(--button-hover-color);
+        text-decoration: none;
+    }
 }

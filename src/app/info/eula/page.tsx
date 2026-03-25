@@ -7,8 +7,8 @@ export default function EULA() {
             <section>
                 <h3>End User Licence Agreement (EULA)</h3>
 
-                <p><strong>Effective Date:</strong>23/03/26<br />
-                <strong>Licensor:</strong> Moretype (Moretype&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;)</p>
+                <p>Effective Date: 23/03/26<br />
+                Licensor: Moretype (Moretype&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;)</p>
                 <p>
                     This End User License Agreement (&quot;Agreement&quot;) is a legal agreement between you (&quot;Licensee&quot;, &quot;you&quot;, or &quot;your&quot;) and Moretype governing your use of the font software provided by Moretype (&quot;Font Software&quot;).  
                 </p>

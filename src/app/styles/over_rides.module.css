@@ -59,12 +59,17 @@
     color: var(--text-color);
 }
 :global(.submit-button){
-    border: 1px solid #111;
-    background: #111;
+    border: none;
+    background: var(--button-color);
     color: #fff;
     border-radius: var(--border-radius);
-    padding: 12px 16px;
+    padding: 10px 16px;
     width: fit-content;
+    cursor: pointer;
+}
+:global(.submit-button:hover){
+    background: var(--button-hover-color);
+    color: #000;
 }
 :global(.login-form__section){
     margin-bottom: 20px;

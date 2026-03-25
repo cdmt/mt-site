@@ -44,7 +44,7 @@
     text-align: center;
     margin-right: 10px;
     h3{
-        font-size: 80px;
+        font-size: 70px;
         font-weight: inherit;
         font-style: inherit;
     }
@@ -59,7 +59,7 @@
 @media(min-width: 800px){
     .weight_aa{
         h3{
-            font-size: 120px;
+            font-size: 110px;
         }
     }        
 }

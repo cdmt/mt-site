@@ -5,9 +5,11 @@ import { FontQuery, FontQueryVariables } from "../../../../operations-types";
 import CharacterViewer from "fontdue-js/CharacterViewer";
 import TypeTesters from "fontdue-js/TypeTesters";
 import FontStyle from "@/components/FontStyle";
-import font_styles from "../../styles/fonts.module.css"
 import Link from "next/link";
 import BuyButton from "fontdue-js/BuyButton";
+//
+import font_styles from "../../styles/fonts.module.css"
+
 
 async function getData(slug: string) {
     return fetchGraphql<FontQuery, FontQueryVariables>("Fonts.graphql", { slug });

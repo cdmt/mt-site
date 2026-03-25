@@ -4,7 +4,7 @@ import { FooterQuery } from "../../operations-types";
 import Link from "next/link";
 import FontStyle from "@/components/FontStyle";
 import PreloadWebfonts from "@/components/PreloadWebfonts";
-
+//
 import page_styles from "./styles/page.module.css";
 import global_styles from "./styles/global.module.css"
 

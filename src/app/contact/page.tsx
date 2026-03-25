@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import form_styles from "../styles/contact.module.css";
 import info_styles from "../styles/info.module.css"
 import global_styles from "../styles/global.module.css"
+import Link from "next/link";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
@@ -73,6 +74,9 @@ export default function ContactPage() {
                     <p className={form_styles.error}>{errorMessage}</p>
                 )}
             </form>
+            <Link href={'mailto:info@moretype.co.uk'} className={form_styles.email}>
+                info@moretype.co.uk
+            </Link>
         </section>
     );
 }

@@ -9,7 +9,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import CartButton from "fontdue-js/CartButton";
 //
-import globals_styles from "./styles/global.module.css";
+import global_styles from "./styles/global.module.css";
 import "./styles/globals.css";
 import "./styles/over_rides.module.css";
 
@@ -45,9 +45,9 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body>
-                <div className={globals_styles.page}>
+                <div className={global_styles.page}>
                     <FontdueProvider url={fontdueUrl}>
-                        <header className={globals_styles.header}>
+                        <header className={global_styles.header}>
                             <Link href="/">
                                 <Image
                                     src={viewer?.logo?.url!}
@@ -57,9 +57,9 @@ export default async function RootLayout({
                                     priority
                                 />
                             </Link>
-                            <nav className={globals_styles.nav}>
+                            <nav className={global_styles.nav}>
                                 <div>
-                                    <ul className={globals_styles.nav_site_links}>
+                                    <ul className={global_styles.nav_site_links}>
                                         {pages?.map((page) => (
                                             <li key={page.slug?.name}>
                                                 <Link
@@ -71,6 +71,7 @@ export default async function RootLayout({
                                                             : "/"
                                                     }
                                                     key={page.slug?.name}
+                                                    className={global_styles.nav_link}
                                                 >
                                                     <span>{page.title}</span>
                                                 </Link>
@@ -79,9 +80,9 @@ export default async function RootLayout({
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul className={globals_styles.nav_site_links}>
+                                    <ul className={global_styles.nav_site_links}>
                                         <li>
-                                            <Link href={"/customer-login"}>
+                                            <Link href={"/customer-login"} className={global_styles.nav_link}>
                                                 <span>Login</span>
                                             </Link>
                                         </li>
@@ -92,7 +93,7 @@ export default async function RootLayout({
                                 </div>
                             </nav>
                         </header>
-                        <main className={globals_styles.main}>{children}</main>
+                        <main className={global_styles.main}>{children}</main>
                         <StoreModal />
                         <Footer/>
                     </FontdueProvider>
