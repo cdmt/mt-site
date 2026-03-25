@@ -16,8 +16,13 @@
 .page_wrap{
     margin-top: 20px;
 }
+@media(min-width: 800px){
+    .page_width{
+        width: 60%;
+    }
+}
 .header{
-    border-bottom: 2px var(--pink-line) dashed;
+    border-bottom: 2px var(--header-dashed-line) dashed;
     margin-top: 20px;
 }
 .main{

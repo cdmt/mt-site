@@ -5,11 +5,13 @@ import StoreModal from "fontdue-js/StoreModal";
 import { fetchGraphql } from "@/lib/graphql";
 import { RootLayoutQuery } from "../../operations-types";
 import Image from "next/image";
-import globals from "./styles/global.module.css";
 import Link from "next/link";
-import "./styles/globals.css";
 import Footer from "@/components/Footer";
 import CartButton from "fontdue-js/CartButton";
+//
+import globals_styles from "./styles/global.module.css";
+import "./styles/globals.css";
+import "./styles/over_rides.module.css";
 
 
 const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
@@ -43,9 +45,9 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body>
-                <div className={globals.page}>
+                <div className={globals_styles.page}>
                     <FontdueProvider url={fontdueUrl}>
-                        <header className={globals.header}>
+                        <header className={globals_styles.header}>
                             <Link href="/">
                                 <Image
                                     src={viewer?.logo?.url!}
@@ -55,9 +57,9 @@ export default async function RootLayout({
                                     priority
                                 />
                             </Link>
-                            <nav className={globals.nav}>
+                            <nav className={globals_styles.nav}>
                                 <div>
-                                    <ul className={globals.nav_site_links}>
+                                    <ul className={globals_styles.nav_site_links}>
                                         {pages?.map((page) => (
                                             <li key={page.slug?.name}>
                                                 <Link
@@ -77,10 +79,10 @@ export default async function RootLayout({
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul className={globals.nav_site_links}>
+                                    <ul className={globals_styles.nav_site_links}>
                                         <li>
                                             <Link href={"/customer-login"}>
-                                                <span>login</span>
+                                                <span>Login</span>
                                             </Link>
                                         </li>
                                         <li>
@@ -90,7 +92,7 @@ export default async function RootLayout({
                                 </div>
                             </nav>
                         </header>
-                        <main className={globals.main}>{children}</main>
+                        <main className={globals_styles.main}>{children}</main>
                         <StoreModal />
                         <Footer/>
                     </FontdueProvider>

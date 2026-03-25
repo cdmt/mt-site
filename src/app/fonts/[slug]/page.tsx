@@ -6,7 +6,6 @@ import CharacterViewer from "fontdue-js/CharacterViewer";
 import TypeTesters from "fontdue-js/TypeTesters";
 import FontStyle from "@/components/FontStyle";
 import font_styles from "../../styles/fonts.module.css"
-import "../../styles/over_rides.module.css"
 import Link from "next/link";
 import BuyButton from "fontdue-js/BuyButton";
 
