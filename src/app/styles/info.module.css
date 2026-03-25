@@ -24,6 +24,9 @@
         }
     }
 }
+.eula_header{
+    margin-bottom: 5px;
+}
 .faq_page{
     dd{
         padding-bottom: 10px;
@@ -33,5 +36,11 @@
         &:last-of-type{
             border-bottom: none;
         }
+    }
+}
+.install_link{
+    text-decoration: underline;
+    &:hover{
+        text-decoration: none;
     }
 }

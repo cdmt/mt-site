@@ -35,7 +35,10 @@ export default function Home() {
                             >
                                 <div
                                     className={page_styles.font_block_aa}
-                                    style={{ color: font.featureStyle?.family?.colors?.[0] ?? undefined }}
+                                    style={{
+                                        color: font.featureStyle?.family?.colors?.[0] ?? undefined,
+                                        opacity: 0.9
+                                    }}
                                 >
                                     Aa
                                 </div>

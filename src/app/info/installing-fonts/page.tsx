@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import info_styles from '../../styles/info.module.css'
 
 export default function InstallFonts() {
@@ -34,7 +35,7 @@ export default function InstallFonts() {
                     <li>Simple double click the font files on your desktop.</li>
                     <li>Font Book open and add the fonts to your fonts folder.</li>
                 </ul>
-                Further information about installing fonts on a Mac can be found here.
+                Further information about installing fonts on a Mac can be found <Link href="https://support.apple.com/en-gb/guide/font-book/fntbk1000/mac" target="_blank" className={info_styles.install_link}>here</Link>
             </section>
             <section>
                 <h3>Install Fonts on a PC</h3>
@@ -45,7 +46,7 @@ export default function InstallFonts() {
                     <li>Now the font installation window will open.</li>
                     <li>Click Install and wait till it’s done.</li>
                 </ul>
-                Further information about installing fonts on a Mac can be found here.
+                Further information about installing fonts on a Mac can be found <Link href="https://support.microsoft.com/en-us/office/add-a-font-b7c5f17c-4426-4b53-967f-455339c564c1" target="_blank" className={info_styles.install_link}>here</Link>
             </section>
         </div>
     )
