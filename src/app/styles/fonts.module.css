@@ -2,6 +2,23 @@
 
 .page_wrap{
     margin-top: 20px;
+    position: relative;
+}
+
+.sticky_buy_button_wrap {
+    position: sticky;
+    top: 120px;
+    z-index: 100;
+    height: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0;
+}
+
+@media(min-width: 700px){
+    .sticky_buy_button_wrap {
+        padding-right: 40px;
+    }
 }
 
 .style_list {

@@ -1,3 +1,46 @@
-.select-button-hover-parent:first-child {
+@import "./variables.module.css";
+
+:global(.select-button-hover-parent:first-child) {
     border-top: none !important;
+}
+
+:global(.buy-button) {
+    color: #fff;
+    text-align: center;
+    background: var(--buy-button-color);
+    border: none;
+    border-radius: 80px;
+    width: 100px;
+    height: 100px;
+    font-size: 25px;
+    font-weight: 700;
+    box-shadow: -1px 1px 10px -1px rgba(184,184,184,0.75);;
+    border: none;
+}
+
+@media(min-width: 700px){
+    :global(.buy-button) {
+        width: 120px;
+        height: 120px;
+        font-size: 30px;
+    }
+}
+
+:global(.buy-button:hover) {
+    background: #b30000;
+    color: #fff;
+    border: none;
+}
+
+:global(.buy-button:focus),
+:global(.buy-button:active) {
+    color: #fff;
+    border: none;
+}
+:global(.type-tester__select-button){
+    display: none;
+}
+:global(.character-viewer__block__character-list > div){
+    border-style: dashed;
+    border-color: var(--font-display-border);
 }

@@ -8,6 +8,7 @@ import FontStyle from "@/components/FontStyle";
 import font_styles from "../../styles/fonts.module.css"
 import "../../styles/over_rides.module.css"
 import Link from "next/link";
+import BuyButton from "fontdue-js/BuyButton";
 
 async function getData(slug: string) {
     return fetchGraphql<FontQuery, FontQueryVariables>("Fonts.graphql", { slug });
@@ -56,6 +57,11 @@ export default async function FontPage({
 
     return (
         <div className={font_styles.page_wrap}>
+            <div className={font_styles.sticky_buy_button_wrap}>
+                    <BuyButton
+                        collectionId={font.id}
+                    />
+            </div>
             <section>
                 <FontStyle
                     familyName={font.featureStyle?.cssFamily}
