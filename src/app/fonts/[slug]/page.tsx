@@ -35,18 +35,14 @@ export default async function FontPage({
     );
     const designerNames = font.designers?.map((designer) => designer.name).join(", ") || "Not available";
     const glyphCount = font.featureStyle?.glyphNames?.length;
+    const description = font.description
     const fileFormats = [
         "OpenType",
         ...(font.featureStyle?.webfontSources
             ?.map((source) => source?.format)
             .filter((format): format is string => Boolean(format)) ?? []),
     ].filter((format, index, allFormats) => allFormats.indexOf(format) === index);
-    const supportedLanguages =
-        font.featureStyle?.supportedLanguages?.length
-            ? font.featureStyle.supportedLanguages.join(", ")
-            : font.languages?.length
-              ? font.languages.join(", ")
-              : "Not available";
+    const supportedLanguages = font.languages
     const imageSectionStyle = font.colors?.length
         ? {
               background:
@@ -128,6 +124,10 @@ export default async function FontPage({
             <section className={`${font_styles.page_section} ${font_styles.font_info_full_bleed}`}>
                 <div className={font_styles.font_info_inner}>
                 <dl className={font_styles.font_info_grid}>
+                    <div>
+                        <dt>Description</dt>
+                        <dd>{description}</dd>
+                    </div>
                     <div>
                         <dt>Designed by:</dt>
                         <dd>{designerNames}</dd>
