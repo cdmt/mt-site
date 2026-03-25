@@ -7,6 +7,7 @@ import TypeTesters from "fontdue-js/TypeTesters";
 import FontStyle from "@/components/FontStyle";
 import font_styles from "../../styles/fonts.module.css"
 import "../../styles/over_rides.module.css"
+import Link from "next/link";
 
 async function getData(slug: string) {
     return fetchGraphql<FontQuery, FontQueryVariables>("Fonts.graphql", { slug });
@@ -43,6 +44,7 @@ export default async function FontPage({
             .filter((format): format is string => Boolean(format)) ?? []),
     ].filter((format, index, allFormats) => allFormats.indexOf(format) === index);
     const supportedLanguages = font.languages
+    const pdf = font?.pdfs![0]?.url
     const imageSectionStyle = font.colors?.length
         ? {
               background:
@@ -123,52 +125,45 @@ export default async function FontPage({
             </section>
             <section className={`${font_styles.page_section} ${font_styles.font_info_full_bleed}`}>
                 <div className={font_styles.font_info_inner}>
-                <dl className={font_styles.font_info_grid}>
                     <div>
-                        <dt>Description</dt>
-                        <dd>{description}</dd>
+                        <div className={font_styles.font_info_inner_section}>
+                            <p className={font_styles.font_info_inner_title}>Designer:</p>
+                            <p>{designerNames}</p>
+                        </div>
+                        <div className={font_styles.font_info_inner_section}>
+                            <p className={font_styles.font_info_inner_title}>Description:</p>
+                            <p>{description}</p>
+                        </div>
+                        <div className={font_styles.font_info_inner_section}>
+                            <p className={font_styles.font_info_inner_title}>Year:</p>
+                            <p>{font.designYear || "Not available"}</p>
+                        </div>
+                        <div className={font_styles.font_info_inner_section}>
+                            <p className={font_styles.font_info_inner_title}>Glyphs:</p>
+                            <p>{glyphCount ?? "Not available"}</p>
+                        </div>
+                        <div className={font_styles.font_info_inner_section}>
+                            <p className={font_styles.font_info_inner_title}>Encoding:</p>
+                            <p>Latin Extended</p>
+                        </div>
+                        <div className={font_styles.font_info_inner_section}>
+                            <p className={font_styles.font_info_inner_title}>File Formats:</p>
+                            <p>{fileFormats.join(", ")}</p>
+                        </div>
+                        <div className={font_styles.font_info_inner_section}>
+                            <p className={font_styles.font_info_inner_title}>PDF:</p>
+                            <Link href={pdf!} target="_blank">
+                                <img src="/pdf.svg" className={font_styles.font_info_pdf}/>
+                            </Link>
+                        </div>
                     </div>
-                    <div>
-                        <dt>Designed by:</dt>
-                        <dd>{designerNames}</dd>
-                    </div>
-                    <div>
-                        <dt>Year:</dt>
-                        <dd>{font.designYear || "Not available"}</dd>
-                    </div>
-                    <div>
-                        <dt>Glyphs:</dt>
-                        <dd>{glyphCount ?? "Not available"}</dd>
-                    </div>
-                    <div>
-                        <dt>Encoding:</dt>
-                        <dd>Latin Extended</dd>
-                    </div>
-                    <div>
-                        <dt>File Formats:</dt>
-                        <dd>{fileFormats.join(", ")}</dd>
-                    </div>
-                    <div>
-                        <dt>Supported languages:</dt>
-                        <dd>{supportedLanguages}</dd>
-                    </div>
-                    <div>
-                        <dt>PDF:</dt>
-                        <dd className={font_styles.pdf_links}>
-                            {font.pdfs?.length ? (
-                                font.pdfs.map((pdf, index) =>
-                                    pdf?.url ? (
-                                        <a key={pdf.url} href={pdf.url} target="_blank" rel="noreferrer">
-                                            {pdf.name || `PDF ${index + 1}`}
-                                        </a>
-                                    ) : null
-                                )
-                            ) : (
-                                <span>Not available</span>
-                            )}
-                        </dd>
-                    </div>
-                </dl>
+                    <div>   
+                        <div>
+                            <p className={font_styles.font_info_inner_title}>Supported languages:</p>
+                            <p>{supportedLanguages}</p>
+                        </div>
+                    </div>     
+                
                 </div>
             </section>
             <section className={font_styles.page_section}>
