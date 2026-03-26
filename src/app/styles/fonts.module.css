@@ -44,7 +44,7 @@
     text-align: center;
     margin-right: 10px;
     h3{
-        font-size: 70px;
+        font-size: 50px;
         font-weight: inherit;
         font-style: inherit;
     }
@@ -56,12 +56,30 @@
     }
 }
 
+@media(min-width: 600px){
+    .weight_aa{
+        h3{
+            font-size: 80px;
+        }
+    }        
+}
+
 @media(min-width: 800px){
     .weight_aa{
         h3{
             font-size: 110px;
         }
     }        
+}
+
+.weight_p{
+    display: none;
+}
+
+@media(min-width: 600px){
+    .weight_p{
+        display: inline-block;
+    }   
 }
 
 .page_section{
@@ -129,6 +147,10 @@
 
     &:first-of-type{
         padding-top: 0;
+    }
+
+    &:last-of-type{
+        border-bottom: none;
     }
 }
 .font_info_inner_title{

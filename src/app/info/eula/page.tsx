@@ -1,9 +1,9 @@
 import info_styles from '../../styles/info.module.css'
-
+import global_styles from "../../styles/global.module.css"
 
 export default function EULA() {
     return(
-        <div className={`${info_styles.info_page} ${info_styles.eula}`}>
+        <div className={`${global_styles.info_page} ${info_styles.eula}`}>
             <section>
                 <h3 className={info_styles.eula_header}>End User Licence Agreement (EULA)</h3>
 

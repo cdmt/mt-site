@@ -1,8 +1,9 @@
 import info_styles from '../../styles/info.module.css'
+import global_styles from "../../styles/global.module.css"
 
 export default function FAQ() {
     return(
-        <div className={info_styles.info_page}>
+        <div className={global_styles.info_page}>
             <dl className={info_styles.faq_page}>
                 <dt><h4>What format are the fonts?</h4></dt>
                 <dd>The fonts are all in OpenType but other formats could be considered upon request.</dd>

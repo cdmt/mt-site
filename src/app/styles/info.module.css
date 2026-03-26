@@ -3,11 +3,6 @@
     padding: 20px 0;
     margin-bottom: 20px;
 }
-@media(min-width: 800px){
-    .info_page{
-        width: 60%;
-    }
-}
 .eula{
     section{
         padding-bottom: 20px;
@@ -36,6 +31,9 @@
         &:last-of-type{
             border-bottom: none;
         }
+    }
+    dt{
+        margin-bottom: 5px;
     }
 }
 .install_link{

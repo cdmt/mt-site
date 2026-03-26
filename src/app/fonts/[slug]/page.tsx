@@ -46,7 +46,7 @@ export default async function FontPage({
             ?.map((source) => source?.format)
             .filter((format): format is string => Boolean(format)) ?? []),
     ].filter((format, index, allFormats) => allFormats.indexOf(format) === index);
-    const supportedLanguages = font.languages
+    const supportedLanguages = font.languages?.filter(Boolean).join(" ")
     const pdf = font?.pdfs![0]?.url
     const imageSectionStyle = font.colors?.length
         ? {
@@ -86,7 +86,7 @@ export default async function FontPage({
                             >
                                 <div className={font_styles.weight_aa}>
                                     <h3>Aa</h3>
-                                    <p>{style.name}</p>
+                                    <p className={font_styles.weight_p}>{style.name}</p>
                                 </div>
                             </FontStyle>
                         ))}
@@ -105,7 +105,7 @@ export default async function FontPage({
                             >
                                 <div className={font_styles.weight_aa}>
                                     <h3>Aa</h3>
-                                    <p>{style.name}</p>
+                                    <p className={font_styles.weight_p}>{style.name}</p>
                                 </div>
                             </FontStyle>
                         ))}
@@ -158,17 +158,17 @@ export default async function FontPage({
                             <p className={font_styles.font_info_inner_title}>File Formats:</p>
                             <p>{fileFormats.join(", ")}</p>
                         </div>
+                    </div>
+                    <div>   
+                        <div className={font_styles.font_info_inner_section}>
+                            <p className={font_styles.font_info_inner_title}>Supported languages:</p>
+                            <p>{supportedLanguages}</p>
+                        </div>
                         <div className={font_styles.font_info_inner_section}>
                             <p className={font_styles.font_info_inner_title}>PDF:</p>
                             <Link href={pdf!} target="_blank">
                                 <img src="/pdf.svg" className={font_styles.font_info_pdf}/>
                             </Link>
-                        </div>
-                    </div>
-                    <div>   
-                        <div>
-                            <p className={font_styles.font_info_inner_title}>Supported languages:</p>
-                            <p>{supportedLanguages}</p>
                         </div>
                     </div>     
                 

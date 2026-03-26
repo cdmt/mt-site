@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import info_styles from '../../styles/info.module.css'
+import global_styles from "../../styles/global.module.css"
 
 export default function InstallFonts() {
     return(
-        <div className={info_styles.eula}>
+        <div className={`${info_styles.eula} ${global_styles.info_page}`}>
             <section>
                 <h3>Whether you are installing fonts on a Mac or PC you should first.</h3>
                 <ul>

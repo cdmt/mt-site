@@ -49,7 +49,7 @@ export default function ContactPage() {
     }
 
     return (
-        <section className={`${info_styles.info_page} ${global_styles.page_wrap}`}>
+        <section className={`${global_styles.info_page} ${global_styles.page_wrap}`}>
             <p className={form_styles.subtitle}>Send us a message and we will get back to you.</p>
 
             <form className={form_styles.form} onSubmit={onSubmit}>
