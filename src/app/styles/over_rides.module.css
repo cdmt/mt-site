@@ -74,3 +74,7 @@
 :global(.login-form__section){
     margin-bottom: 20px;
 }
+
+.locked_type_tester :global(.type-tester__slider) {
+    display: none;
+}

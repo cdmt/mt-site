@@ -7,6 +7,7 @@ import TypeTesters from "fontdue-js/TypeTesters";
 import FontStyle from "@/components/FontStyle";
 import Link from "next/link";
 import BuyButton from "fontdue-js/BuyButton";
+import StandaloneTypeTesters from "@/components/StandaloneTypeTesters";
 //
 import font_styles from "../../styles/fonts.module.css"
 
@@ -173,6 +174,12 @@ export default async function FontPage({
                 
                 </div>
             </section>
+            <StandaloneTypeTesters
+                slug={slug}
+                fontName={font.name}
+                fontStyles={font.fontStyles}
+                sectionClassName={font_styles.page_section}
+            />
             <section className={font_styles.page_section}>
                 <CharacterViewer collectionId={font.id} />
             </section>    
