@@ -3,30 +3,28 @@ import { fetchGraphql } from "@/lib/graphql";
 import { FooterQuery } from "../../operations-types";
 import Image from "next/image";
 import Link from "next/link";
-import footer_styles from '../app/styles/footer.module.css'
+import footer_styles from "../app/styles/footer.module.css";
+
+type FooterProps = {
+    data?: FooterQuery;
+};
 
 async function getData() {
-    return fetchGraphql<FooterQuery>("Footer.graphql");
+    return fetchGraphql<FooterQuery>("Footer.graphql", undefined);
 }
 
-const { viewer } = await getData();
-const fonts =
-    viewer?.fontCollections?.edges?.flatMap(edge =>
-        edge?.node ? [edge.node] : [],
-    ) ?? [];
-const pages =
-    viewer?.pages?.edges?.flatMap(edge =>
-        edge?.node ? [edge.node] : [],
-    ) ?? [];    
-
-export default async function Footer() {
+export default async function Footer({ data }: FooterProps = {}) {
+    const { viewer } = data ?? (await getData());
+    const fonts =
+        viewer?.fontCollections?.edges?.flatMap((edge) => (edge?.node ? [edge.node] : [])) ?? [];
+    const pages = viewer?.pages?.edges?.flatMap((edge) => (edge?.node ? [edge.node] : [])) ?? [];
 
     return (
         <footer className={globals.footer}>
             <div className={footer_styles.footer_wrap}>
                 <div className={footer_styles.footer_fonts}>
                     {fonts.map((font) => (
-                        <Link href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"} key={font.slug?.name}>
+                        <Link href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"} key={font.id}>
                             {font.name} •{' '}
                         </Link>
                     ))}
@@ -41,7 +39,7 @@ export default async function Footer() {
                                         : `/${page.slug.name}`
                                     : "/"
                             }
-                            key={page.slug?.name}
+                            key={page.id}
                         >
                             <p>{page.slug?.name}</p>
                         </Link>
