@@ -56,9 +56,17 @@ export default function FontInfoSection({
                     </div>
                     <div className={font_styles.font_info_inner_section}>
                         <p className={font_styles.font_info_inner_title}>PDF:</p>
-                        <Link href={pdf!} target="_blank">
-                            <img src="/pdf.svg" className={font_styles.font_info_pdf} />
-                        </Link>
+                        {pdf ? (
+                            <Link href={pdf} target="_blank">
+                                <img
+                                    src="/pdf.svg"
+                                    alt="Download PDF specimen"
+                                    className={font_styles.font_info_pdf}
+                                />
+                            </Link>
+                        ) : (
+                            <p>Not available</p>
+                        )}
                     </div>
                 </div>
             </div>
