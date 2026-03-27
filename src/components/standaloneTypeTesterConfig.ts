@@ -88,7 +88,7 @@ export const standaloneTypeTesterConfig: StandaloneTypeTesterConfig = {
             "O'u te fa'atau talo e mata tolu.",
         ],
         varly: [
-            "Mothes hold there childrens hands for a short while but there hearts forever",
+            "Mothers hold their children's hands for a short while but there hearts forever",
             "Only nice vibes",
             "Maw ia ki Krow",
         ],

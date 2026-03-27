@@ -5,9 +5,9 @@ import { FontQuery, FontQueryVariables } from "../../../../operations-types";
 import CharacterViewer from "fontdue-js/CharacterViewer";
 import TypeTesters from "fontdue-js/TypeTesters";
 import FontStyle from "@/components/FontStyle";
-import Link from "next/link";
 import BuyButton from "fontdue-js/BuyButton";
 import StandaloneTypeTesters from "@/components/StandaloneTypeTesters";
+import FontInfoSection from "@/components/FontInfoSection";
 //
 import font_styles from "../../styles/fonts.module.css"
 
@@ -46,7 +46,7 @@ export default async function FontPage({
             ?.map((source) => source?.format)
             .filter((format): format is string => Boolean(format)) ?? []),
     ].filter((format, index, allFormats) => allFormats.indexOf(format) === index);
-    const supportedLanguages = font.languages?.filter(Boolean).join(" ")
+    const supportedLanguages = font.languages?.filter(Boolean).join(", ")
     const pdf = font?.pdfs![0]?.url
     const imageSectionStyle = font.colors?.length
         ? {
@@ -131,49 +131,15 @@ export default async function FontPage({
             <section className={font_styles.page_section}>
                 <TypeTesters collectionId={font.id} />
             </section>
-            <section className={`${font_styles.page_section} ${font_styles.font_info_full_bleed}`}>
-                <div className={font_styles.font_info_inner}>
-                    <div>
-                        <div className={font_styles.font_info_inner_section}>
-                            <p className={font_styles.font_info_inner_title}>Designer:</p>
-                            <p>{designerNames}</p>
-                        </div>
-                        <div className={font_styles.font_info_inner_section}>
-                            <p className={font_styles.font_info_inner_title}>Description:</p>
-                            <p>{description}</p>
-                        </div>
-                        <div className={font_styles.font_info_inner_section}>
-                            <p className={font_styles.font_info_inner_title}>Year:</p>
-                            <p>{font.designYear || "Not available"}</p>
-                        </div>
-                        <div className={font_styles.font_info_inner_section}>
-                            <p className={font_styles.font_info_inner_title}>Glyphs:</p>
-                            <p>{glyphCount ?? "Not available"}</p>
-                        </div>
-                        <div className={font_styles.font_info_inner_section}>
-                            <p className={font_styles.font_info_inner_title}>Encoding:</p>
-                            <p>Latin Extended</p>
-                        </div>
-                        <div className={font_styles.font_info_inner_section}>
-                            <p className={font_styles.font_info_inner_title}>File Formats:</p>
-                            <p>{fileFormats.join(", ")}</p>
-                        </div>
-                    </div>
-                    <div>   
-                        <div className={font_styles.font_info_inner_section}>
-                            <p className={font_styles.font_info_inner_title}>Supported languages:</p>
-                            <p>{supportedLanguages}</p>
-                        </div>
-                        <div className={font_styles.font_info_inner_section}>
-                            <p className={font_styles.font_info_inner_title}>PDF:</p>
-                            <Link href={pdf!} target="_blank">
-                                <img src="/pdf.svg" className={font_styles.font_info_pdf}/>
-                            </Link>
-                        </div>
-                    </div>     
-                
-                </div>
-            </section>
+            <FontInfoSection
+                designerNames={designerNames}
+                description={description}
+                designYear={font.designYear}
+                glyphCount={glyphCount}
+                fileFormats={fileFormats}
+                supportedLanguages={supportedLanguages}
+                pdf={pdf}
+            />
             <StandaloneTypeTesters
                 slug={slug}
                 fontName={font.name}
