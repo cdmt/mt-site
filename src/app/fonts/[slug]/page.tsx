@@ -8,6 +8,7 @@ import FontStyle from "@/components/FontStyle";
 import BuyButton from "fontdue-js/BuyButton";
 import StandaloneTypeTesters from "@/components/StandaloneTypeTesters";
 import FontInfoSection from "@/components/FontInfoSection";
+import FontStyleSamples from "@/components/FontStyleSamples";
 //
 import font_styles from "../../styles/fonts.module.css"
 
@@ -73,44 +74,8 @@ export default async function FontPage({
                 </FontStyle>
             </section>
             <section className={`${font_styles.style_list} ${font_styles.page_section}`}>
-                {regularStyles.length > 0 && (
-                    <div className={font_styles.style_row}>
-                        {regularStyles.map((style) => (
-                            <FontStyle
-                                key={style.name}
-                                familyName={style.cssFamily}
-                                styleName={style.name}
-                                fontWeight={style.cssWeight}
-                                fontStyle={style.cssStyle ?? "normal"}
-                                className={font_styles.style_sample}
-                            >
-                                <div className={font_styles.weight_aa}>
-                                    <h3>Aa</h3>
-                                    <p className={font_styles.weight_p}>{style.name}</p>
-                                </div>
-                            </FontStyle>
-                        ))}
-                    </div>
-                )}
-                {italicStyles.length > 0 && (
-                    <div className={font_styles.style_row}>
-                        {italicStyles.map((style) => (
-                            <FontStyle
-                                key={style.name}
-                                familyName={style.cssFamily}
-                                styleName={style.name}
-                                fontWeight={style.cssWeight}
-                                fontStyle={style.cssStyle ?? "normal"}
-                                className={font_styles.style_sample}
-                            >
-                                <div className={font_styles.weight_aa}>
-                                    <h3>Aa</h3>
-                                    <p className={font_styles.weight_p}>{style.name}</p>
-                                </div>
-                            </FontStyle>
-                        ))}
-                    </div>
-                )}
+                <FontStyleSamples styles={regularStyles} />
+                <FontStyleSamples styles={italicStyles} />
             </section>
             <section
                 className={`${font_styles.page_section} ${font_styles.image_section_full_bleed}`}
