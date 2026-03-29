@@ -38,7 +38,7 @@ export default async function FontPage({
     const italicStyles = font.fontStyles.filter((style) =>
         style.name.toLowerCase().includes("italic")
     );
-    const designerNames = font.designers?.map((designer) => designer.name).join(", ") || "Not available";
+    const designerNames = font.designers?.map((designer) => designer.name).join(" ") || "Not available";
     const glyphCount = font.featureStyle?.glyphNames?.length;
     const description = font.description
     const fileFormats = [
@@ -47,7 +47,7 @@ export default async function FontPage({
             ?.map((source) => source?.format)
             .filter((format): format is string => Boolean(format)) ?? []),
     ].filter((format, index, allFormats) => allFormats.indexOf(format) === index);
-    const supportedLanguages = font.languages?.filter(Boolean).join(", ")
+    const supportedLanguages = font.languages?.filter(Boolean).join(" ")
     const pdf = font?.pdfs![0]?.url
     const imageSectionStyle = font.colors?.length
         ? {
