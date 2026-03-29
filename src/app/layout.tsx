@@ -7,6 +7,7 @@ import { RootLayoutQuery } from "../../operations-types";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import NavLink from "@/components/NavLink";
 import CartButton from "fontdue-js/CartButton";
 //
 import global_styles from "./styles/global.module.css";
@@ -62,7 +63,7 @@ export default async function RootLayout({
                                     <ul className={global_styles.nav_site_links}>
                                         {pages?.map((page) => (
                                             <li key={page.slug?.name}>
-                                                <Link
+                                                <NavLink
                                                     href={
                                                         page.slug?.name
                                                             ? page.slug.name === "fonts"
@@ -72,9 +73,11 @@ export default async function RootLayout({
                                                     }
                                                     key={page.slug?.name}
                                                     className={global_styles.nav_link}
+                                                    activeClassName={global_styles.nav_link_active}
+                                                    exact={page.slug?.name === "fonts"}
                                                 >
                                                     <span>{page.title}</span>
-                                                </Link>
+                                                </NavLink>
                                             </li>
                                         ))}
                                     </ul>
@@ -82,9 +85,13 @@ export default async function RootLayout({
                                 <div>
                                     <ul className={global_styles.nav_site_links}>
                                         <li>
-                                            <Link href={"/customer-login"} className={global_styles.nav_link}>
+                                            <NavLink
+                                                href={"/customer-login"}
+                                                className={global_styles.nav_link}
+                                                activeClassName={global_styles.nav_link_active}
+                                            >
                                                 <span>Login</span>
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                         <li>
                                             <CartButton buttonStyle="icon" />
