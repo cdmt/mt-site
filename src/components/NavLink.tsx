@@ -19,11 +19,12 @@ export default function NavLink({
     ...props
 }: NavLinkProps) {
     const pathname = usePathname();
+    const currentPath = pathname ?? "";
     const href = typeof props.href === "string" ? props.href : props.href.pathname ?? "";
 
     const isActive = exact
-        ? pathname === href
-        : pathname === href || pathname.startsWith(`${href}/`);
+        ? currentPath === href
+        : currentPath === href || currentPath.startsWith(`${href}/`);
 
     const classes = [className, isActive ? activeClassName : undefined]
         .filter(Boolean)
