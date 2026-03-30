@@ -14,23 +14,42 @@ import global_styles from "./styles/global.module.css";
 import "./styles/globals.css";
 import "./styles/over_rides.module.css";
 
-
 const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
-
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 async function getData() {
   return fetchGraphql<RootLayoutQuery>("RootLayout.graphql");
 }
 
-const { viewer } = await getData();
-// const pages =
-//     viewer?.pages?.edges?.flatMap(edge =>
-//         edge?.node ? [edge.node] : [],
-//     ) ?? [];    
+const { viewer } = await getData();  
 
 export const metadata: Metadata = {
-    title: "Moretype",
+    metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+    title: {
+        default: "Moretype",
+        template: "%s | Moretype",
+    },
     description: "Moretype type foundry",
+    applicationName: "Moretype",
+    alternates: {
+        canonical: "/",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    openGraph: {
+        type: "website",
+        title: "Moretype",
+        description: "Moretype type foundry",
+        siteName: "Moretype",
+        url: "/",
+    },
+    twitter: {
+        card: "summary",
+        title: "Moretype",
+        description: "Moretype type foundry",
+    },
 };
 
 export default async function RootLayout({

@@ -21,7 +21,7 @@ const fonts =
 export default function Home() {
     return (
         <div className={`${page_styles.home_fonts} ${global_styles.page_wrap}`}>
-            {fonts.map((font, index) => (
+            {fonts.map((font) => (
                 <React.Fragment key={font.id}>
                     <div className={page_styles.font_block}>
                         <PreloadWebfonts style={font.featureStyle} />
