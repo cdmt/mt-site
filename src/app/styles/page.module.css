@@ -1,3 +1,5 @@
+@import "../styles/variables.module.css";
+
 .home_fonts {
     display: flex;
     flex-wrap: wrap;
@@ -20,8 +22,9 @@
     border: 1px grey dotted;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 0px #DFDFDF;
-    background: hsl(180, 16%, 74%);
+    background: var(--header-dashed-line);
     color: white;
+    font-size: 30px;
 }
 
 .font_link{
