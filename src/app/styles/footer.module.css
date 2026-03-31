@@ -1,12 +1,13 @@
 .footer_wrap{
     padding: 30px 0;
     justify-content: space-between;
+
 }
 
 .footer_fonts, .footer_pages{
     margin-bottom: 20px;
     a{
-        color: #aaa;
+        color: #888;
 
         &:hover{
             color: #111;
@@ -14,12 +15,19 @@
     }
 }
 
+.footer_pages{
+    a{
+        display: block;
+    }
+}
+
 @media(min-width: 800px){
    .footer_wrap{
         display: flex;
+        column-gap: 100px;
    }
    .footer_fonts{
-        width: 600px;
+        width: 520px;
    }
    .footer_fonts, .footer_pages{
         margin-bottom: 0;
@@ -27,9 +35,14 @@
 }
 .footer_copyright{
     margin-bottom: 20px;
+    color: var(--header-dashed-line);
 }
 .footer_links{
     img{
         width: 25px;
     }
+}
+.footer_link{
+    padding: 2px 0;
+    display: inline-block;
 }
