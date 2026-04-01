@@ -42,3 +42,9 @@
         text-decoration: none;
     }
 }
+.faq_link{
+    text-decoration: underline;
+    &:hover{
+        text-decoration: none;
+    }
+}

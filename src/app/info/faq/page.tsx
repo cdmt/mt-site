@@ -22,7 +22,7 @@ export default function FAQ() {
                 <dt><h4>Can I use the fonts in a website?</h4></dt>
                 <dd>Fonts can be used in a website providing they are in a secure, read only mode. This is covered in more detail in the Moretype EULA. Moretype fonts are available as web fonts from Typekit, Fontdeck and Webink</dd>
                 <dt><h4>Have another question ?</h4></dt>
-                <dd>If you have another question you get in </dd>
+                <dd>If you have another question you get in touch <a href="mailto:info@moretype.co.uk" className={info_styles.faq_link}>info@moretype.co.uk</a></dd>
             </dl>
         </div>
     )

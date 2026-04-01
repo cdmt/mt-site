@@ -1,7 +1,6 @@
 .footer_wrap{
     padding: 30px 0;
     justify-content: space-between;
-
 }
 
 .footer_fonts, .footer_pages{
@@ -21,10 +20,28 @@
     }
 }
 
+.footer_divider{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--header-dashed-line);
+    margin-bottom: 20px;
+}
+
 @media(min-width: 800px){
    .footer_wrap{
         display: flex;
-        column-gap: 100px;
+        align-items: stretch;
+        justify-content: space-between;
+   }
+   .footer_divider{
+        display: block;
+        /* width: 2px; */
+        height: auto;
+        flex: 0 0 1px;
+        margin-bottom: 0;
+        align-self: stretch;
+        background: var(--header-dashed-line);
    }
    .footer_fonts{
         width: 520px;

@@ -29,6 +29,7 @@ export default async function Footer({ data }: FooterProps = {}) {
                         </Link>
                     ))}
                 </div>
+                <div className={footer_styles.footer_divider} aria-hidden="true" />
                 <div className={footer_styles.footer_pages}>
                     {pages.map((page) => (
                         <Link
@@ -45,6 +46,7 @@ export default async function Footer({ data }: FooterProps = {}) {
                         </Link>
                     ))}
                 </div>
+                <div className={footer_styles.footer_divider} aria-hidden="true" />
                 <div className={footer_styles.footer_links}>
                     <Link href="https://www.instagram.com/moretype/" target="_blank">
                         <Image src="/instagram.png" alt="instagram logo" width={24} height={24} />
