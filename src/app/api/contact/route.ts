@@ -9,6 +9,11 @@ type ContactPayload = {
     message?: string;
 };
 
+type MailSendError = {
+    responseCode?: number;
+    code?: string;
+};
+
 function getRequiredEnv(name: string): string {
     const value = process.env[name];
     if (!value) {
@@ -28,6 +33,15 @@ function escapeHtml(value: string): string {
         .replace(/>/g, "&gt;")
         .replace(/\"/g, "&quot;")
         .replace(/'/g, "&#039;");
+}
+
+function isSenderRejectedError(error: unknown): boolean {
+    if (!error || typeof error !== "object") {
+        return false;
+    }
+
+    const smtpError = error as MailSendError;
+    return smtpError.responseCode === 553 || smtpError.code === "EENVELOPE";
 }
 
 export async function POST(request: Request) {
@@ -54,6 +68,7 @@ export async function POST(request: Request) {
         const port = Number(getRequiredEnv("SMTP_PORT"));
         const user = getRequiredEnv("SMTP_USER");
         const pass = getRequiredEnv("SMTP_PASS");
+        const tlsServername = (process.env.SMTP_TLS_SERVERNAME ?? "").trim();
 
         if (Number.isNaN(port)) {
             throw new Error("SMTP_PORT must be a valid number.");
@@ -67,19 +82,40 @@ export async function POST(request: Request) {
                 user,
                 pass,
             },
+            ...(tlsServername
+                ? {
+                      tls: {
+                          servername: tlsServername,
+                      },
+                  }
+                : {}),
         });
 
         const toAddress = process.env.CONTACT_TO_EMAIL ?? "info@moretype.co.uk";
         const fromAddress = process.env.CONTACT_FROM_EMAIL ?? user;
-
-        await transporter.sendMail({
+        const baseMail = {
             to: toAddress,
-            from: fromAddress,
             replyTo: email,
             subject: `Website contact form: ${name}`,
             text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
             html: `<p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`,
-        });
+        };
+
+        try {
+            await transporter.sendMail({
+                ...baseMail,
+                from: fromAddress,
+            });
+        } catch (error) {
+            if (fromAddress !== user && isSenderRejectedError(error)) {
+                await transporter.sendMail({
+                    ...baseMail,
+                    from: user,
+                });
+            } else {
+                throw error;
+            }
+        }
 
         return NextResponse.json({ ok: true }, { status: 200 });
     } catch (error) {

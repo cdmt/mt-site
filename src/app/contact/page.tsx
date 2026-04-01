@@ -16,8 +16,9 @@ export default function ContactPage() {
         event.preventDefault();
         setStatus("sending");
         setErrorMessage("");
+        const form = event.currentTarget;
 
-        const formData = new FormData(event.currentTarget);
+        const formData = new FormData(form);
         const payload = {
             name: String(formData.get("name") ?? "").trim(),
             email: String(formData.get("email") ?? "").trim(),
@@ -40,7 +41,7 @@ export default function ContactPage() {
                 return;
             }
 
-            event.currentTarget.reset();
+            form.reset();
             setStatus("success");
         } catch {
             setStatus("error");
