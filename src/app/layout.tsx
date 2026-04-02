@@ -21,8 +21,6 @@ async function getData() {
   return fetchGraphql<RootLayoutQuery>("RootLayout.graphql");
 }
 
-const { viewer } = await getData();  
-
 export const metadata: Metadata = {
     metadataBase: siteUrl ? new URL(siteUrl) : undefined,
     title: {
