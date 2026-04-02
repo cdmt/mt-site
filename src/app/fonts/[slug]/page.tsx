@@ -42,7 +42,7 @@ export default async function FontPage({
     const glyphCount = font.featureStyle?.glyphNames?.length;
     const description = font.description
     const fileFormats = [
-        "OpenType",
+        "otf",
         ...(font.featureStyle?.webfontSources
             ?.map((source) => source?.format)
             .filter((format): format is string => Boolean(format)) ?? []),

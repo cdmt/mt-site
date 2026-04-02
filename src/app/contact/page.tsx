@@ -2,7 +2,6 @@
 import { FormEvent, useState } from "react";
 //
 import form_styles from "../styles/contact.module.css";
-import info_styles from "../styles/info.module.css"
 import global_styles from "../styles/global.module.css"
 import Link from "next/link";
 

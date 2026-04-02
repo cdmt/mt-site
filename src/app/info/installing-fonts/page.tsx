@@ -9,13 +9,13 @@ export default function InstallFonts() {
                 <h3>Whether you are installing fonts on a Mac or PC you should first.</h3>
                 <ul>
                     <li>
-                    Close all open applications.
+                        Close all open applications.
                     </li>
                     <li>
-                    Unzip the downloaded file containing the fonts.
+                        Unzip the downloaded file containing the fonts.
                     </li>
                     <li>
-                    On your desktop you should have a folder for each font weight or font family you wish to install.
+                        On your desktop you should have a folder for each font weight or font family you wish to install.
                     </li>
                 </ul>
             </section>
