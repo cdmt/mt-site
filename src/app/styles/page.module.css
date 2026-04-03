@@ -3,25 +3,35 @@
 .home_fonts {
     display: flex;
     flex-wrap: wrap;
-    gap: 20;
+    gap: 10;
     justify-content: center;
 }
+@media(min-width:700px){
+    .home_fonts {
+        gap: 20;
+    }
+}
 .font_block{
-    padding: 10px 30px 20px 30px;
-    border: 1px grey dotted;
+    padding: 5px 20px 10px 20px;
+    border: 1px var(--font-border-color) dotted;
     border-radius: 10px;
-    box-shadow: 0px 0px 4px 0px #c7c6c6;
+    box-shadow: 0px 0px 4px 0px var(--border-shadow);
 
     &:hover{
         box-shadow: 0px 0px 0px 0px;
         cursor: pointer;
     }
 }
+@media(min-width:700px){
+    .font_block{
+        padding: 10px 30px 20px 30px;
+    }
+}
 .extra_block{
     padding: 25px 30px;
     border: 1px grey dotted;
     border-radius: 10px;
-    box-shadow: 0px 0px 4px 0px #DFDFDF;
+    box-shadow: 0px 0px 4px 0px var(--border-shadow);
     background: var(--header-dashed-line);
     color: white;
     font-size: 30px;
@@ -32,9 +42,17 @@
     color: #000;
 }
 .font_block_aa{
-    font-size: 70px;
+    font-size: 45px;
 }
 .font_block_name{
-    font-size: 35px;
-    margin-bottom: 15px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+@media(min-width:700px){
+    .font_block_aa{
+        font-size: 70px;
+    }
+    .font_block_name{
+        font-size: 35px;
+    }
 }
