@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchGraphql } from "@/lib/graphql";
-import { FooterQuery } from "../../operations-types";
+import { FooterQuery as HomePageQueryData } from "../../operations-types";
 import Link from "next/link";
 import FontStyle from "@/components/FontStyle";
 import PreloadWebfonts from "@/components/PreloadWebfonts";
@@ -8,22 +8,25 @@ import PreloadWebfonts from "@/components/PreloadWebfonts";
 import page_styles from "./styles/page.module.css";
 import global_styles from "./styles/global.module.css"
 
+export const revalidate = 0;
+
 async function getData() {
-    return fetchGraphql<FooterQuery>("Footer.graphql");
+    return fetchGraphql<HomePageQueryData>("HomePage.graphql");
 }
 
-const data = await getData();
-const fonts =
-    data.viewer?.fontCollections?.edges?.flatMap(edge =>
-        edge?.node ? [edge.node] : [],
-    ) ?? [];
+export default async function Home() {
+    const data = await getData();
+    const fonts =
+        data.viewer?.fontCollections?.edges?.flatMap(edge =>
+            edge?.node ? [edge.node] : [],
+        ) ?? [];
 
-export default function Home() {
     return (
         <div className={`${page_styles.home_fonts} ${global_styles.page_wrap}`}>
             {fonts.map((font) => (
                 <React.Fragment key={font.id}>
                     <div className={page_styles.font_block}>
+                        {Boolean(font.isNew) && <span className={page_styles.new_badge}>New</span>}
                         <PreloadWebfonts style={font.featureStyle} />
                         <Link
                             href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"}

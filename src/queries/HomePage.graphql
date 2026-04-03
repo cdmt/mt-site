@@ -1,0 +1,30 @@
+query HomePage {
+  viewer {
+    fontCollections(onlyRoots: true, first: 20) {
+      edges {
+        node {
+          id
+          name
+          isNew
+          slug {
+            name
+          }
+          fontStyles {
+            name
+          }
+          featureStyle {
+            cssFamily
+            name
+            webfontSources {
+              format
+              url
+            }
+            family {
+              colors
+            }
+          }
+        }
+      }
+    }
+  }
+}

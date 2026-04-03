@@ -12,6 +12,7 @@
     }
 }
 .font_block{
+    position: relative;
     padding: 5px 20px 10px 20px;
     border: 1px var(--font-border-color) dotted;
     border-radius: 10px;
@@ -22,6 +23,22 @@
         cursor: pointer;
     }
 }
+
+.new_badge {
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--new-yellow);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 @media(min-width:700px){
     .font_block{
         padding: 10px 30px 20px 30px;

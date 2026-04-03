@@ -29,6 +29,7 @@ fragment FontDetailCollection on FontCollection {
     }
   }
   colors
+  isNew
 }
 
 fragment FontDetail on FontCollection {

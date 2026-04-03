@@ -24,7 +24,7 @@ export default async function Footer({ data }: FooterProps = {}) {
             <div className={footer_styles.footer_wrap}>
                 <div className={footer_styles.footer_fonts}>
                     {fonts.map((font) => (
-                        <Link href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"} key={font.id}>
+                        <Link href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"} key={font.id} className={footer_styles.footer_link}>
                             {font.name} •{' '}
                         </Link>
                     ))}
@@ -41,6 +41,7 @@ export default async function Footer({ data }: FooterProps = {}) {
                                     : "/"
                             }
                             key={page.id}
+                            className={footer_styles.footer_link}
                         >
                             <p>{page.title}</p>
                         </Link>
