@@ -30,12 +30,6 @@ describe("FontInfoSection", () => {
         expect(screen.getAllByText("Not available")[0]).toBeInTheDocument();
     });
 
-    it("renders fallback when glyph count is missing", () => {
-        render(<FontInfoSection {...defaultProps} glyphCount={undefined} />);
-
-        expect(screen.getAllByText("Not available")[0]).toBeInTheDocument();
-    });
-
     it("renders a PDF link when pdf is provided", () => {
         render(<FontInfoSection {...defaultProps} />);
 

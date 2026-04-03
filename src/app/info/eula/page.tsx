@@ -131,7 +131,7 @@ export default function EULA() {
             <section>
                 <h4 className={info_styles.eula_header}>10. Consumer Rights (UK)</h4>
                 <p>
-                    Nothing in this Agreement excludes or limits any rights you may have under applicable UK consumer protection laws, including the Consumer Rights Act 2015, where you are acting as a consumer.
+                    Nothing in this Agreement excludes or limits any rights you may have under applicable consumer protection laws in your country of residence. Where you are acting as a consumer, you may benefit from mandatory provisions of local law that cannot be overridden by this Agreement/Users/chrisdickinson/Desktop/moretype-eula.pdf
                 </p>
             </section>
 
