@@ -37,10 +37,6 @@ export default function FontInfoSection({
                         <p>{designYear || "Not available"}</p>
                     </div>
                     <div className={font_styles.font_info_inner_section}>
-                        <p className={font_styles.font_info_inner_title}>Glyphs:</p>
-                        <p>{glyphCount ?? "Not available"}</p>
-                    </div>
-                    <div className={font_styles.font_info_inner_section}>
                         <p className={font_styles.font_info_inner_title}>Encoding:</p>
                         <p>Latin Extended</p>
                     </div>
