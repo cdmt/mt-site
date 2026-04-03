@@ -42,7 +42,7 @@ export default async function Footer({ data }: FooterProps = {}) {
                             }
                             key={page.id}
                         >
-                            <p>{page.slug?.name}</p>
+                            <p>{page.title}</p>
                         </Link>
                     ))}
                 </div>
