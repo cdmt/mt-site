@@ -6,6 +6,27 @@
     gap: 10;
     justify-content: center;
 }
+
+.name_input_wrap {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.name_input {
+    margin: 0 auto;
+    width: min(100%, 320px);
+    padding: 8px;
+    border: 1px solid var(--font-border-color);
+    border-radius: 4px;
+    background: #fff;
+    color: #111;
+    font: inherit;
+}
+
+.name_input:focus {
+    outline: 1px solid var(--font-border-color);
+}
+
 @media(min-width:700px){
     .home_fonts {
         gap: 20;
