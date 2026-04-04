@@ -1,15 +1,15 @@
 :root {
     --text-color: #000;
-    --border-color: #ddd;
+    --border-color: #C7C6C1;
     --page-spacing: 35px;
     --buy-button-color: #ff0000;
     --font-display-border: #aaa;
-    --header-dashed-line: #fca7de;
+    /* --header-dashed-line: #fca7de; */
+    --header-dashed-line: #d958ab;
     --input-border-color: #c5c5c5;
     --border-radius: 8px;
     --button-color: #000;
     --button-hover-color: #ddd;
     --border-shadow: #c7c6c6;
     --font-border-color: #808080;
-    --new-yellow: red;
 }

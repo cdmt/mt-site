@@ -1,12 +1,12 @@
 .sub_nav{
-    border-bottom: 2px dashed #ddd;
+    border-bottom: 2px dashed var(--border-color);
     padding: 20px 0;
     margin-bottom: 20px;
 }
 .eula{
     section{
         padding-bottom: 20px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid var(--border-color);
         margin-bottom: 20px;
         ul{
             margin: 5px 0 5px 20px;

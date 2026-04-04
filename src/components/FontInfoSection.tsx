@@ -1,5 +1,7 @@
+"use client"
 import Link from "next/link";
 import font_styles from "@/app/styles/fonts.module.css";
+import { useState } from "react";
 
 type FontInfoSectionProps = {
     designerNames: string;
@@ -20,6 +22,8 @@ export default function FontInfoSection({
     supportedLanguages,
     pdf,
 }: FontInfoSectionProps) {
+    const [showLanguages, setShowLanguages] = useState(false);
+
     return (
         <section className={`${font_styles.page_section} ${font_styles.font_info_full_bleed}`}>
             <div className={font_styles.font_info_inner}>
@@ -47,8 +51,25 @@ export default function FontInfoSection({
                 </div>
                 <div>
                     <div className={font_styles.font_info_inner_section}>
-                        <p className={font_styles.font_info_inner_title}>Supported languages:</p>
-                        <p>{supportedLanguages}</p>
+                        <div className={font_styles.language_header}>
+                            <p className={font_styles.font_info_inner_title}>Supported languages:</p>
+                            <button
+                                type="button"
+                                className={font_styles.language_toggle_button}
+                                onClick={() => setShowLanguages(!showLanguages)}
+                            >
+                                    {showLanguages ? "hide" : "show"}
+                            </button>
+                        </div>
+                        <p
+                            className={
+                                showLanguages
+                                    ? font_styles.supported_languages_open
+                                    : font_styles.supported_languages_closed
+                            }
+                        >
+                            {supportedLanguages || "Not available"}
+                        </p>
                     </div>
                     <div className={font_styles.font_info_inner_section}>
                         <p className={font_styles.font_info_inner_title}>PDF:</p>

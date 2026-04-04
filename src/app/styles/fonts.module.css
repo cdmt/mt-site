@@ -158,6 +158,35 @@
     margin-bottom: 5px;
     font-weight: 600;
 }
+
+.language_toggle_button {
+    /* margin-bottom: 8px; */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.supported_languages_closed {
+    display: none;
+}
+
+.supported_languages_open {
+    display: block;
+}
+.language_header{
+    display: flex; 
+    align-items: baseline;
+}
+@media (min-width: 768px) {
+    .language_toggle_button {
+        display: none;
+    }
+
+    .supported_languages_closed {
+        display: block;
+    }
+}
+
 .font_info_pdf{
     width: 40px;
 }

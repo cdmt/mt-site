@@ -22,7 +22,7 @@
     }
 }
 .header{
-    border-bottom: 3px var(--header-dashed-line) dashed;
+    border-bottom: 3px var(--header-dashed-line) dotted;
     margin-top: 20px;
 }
 .main{
