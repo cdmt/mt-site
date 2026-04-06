@@ -83,9 +83,13 @@
 }
 
 .page_section{
-    margin-bottom: var(--page-spacing);
+    margin-bottom: var(--page-spacing-mobile);
 }
-
+@media(min-width: 600px){
+    .page_section{
+        margin-bottom: var(--page-spacing);
+    } 
+}
 .font_info_full_bleed {
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -143,7 +147,7 @@
 }
 
 .font_info_inner_section{
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--font-info-border);
     padding: 10px 0;
 
     &:first-of-type{
@@ -160,10 +164,13 @@
 }
 
 .language_toggle_button {
-    /* margin-bottom: 8px; */
     background: none;
     border: none;
     cursor: pointer;
+    text-decoration: underline;
+    &:hover{
+        text-decoration: none;
+    }
 }
 
 .supported_languages_closed {
