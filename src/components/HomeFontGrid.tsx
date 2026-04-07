@@ -1,6 +1,6 @@
 "use client";
 
-import { type CSSProperties, useState } from "react";
+import { type CSSProperties, useRef, useState } from "react";
 import Link from "next/link";
 import FontStyle from "@/components/FontStyle";
 import PreloadWebfonts from "@/components/PreloadWebfonts";
@@ -19,12 +19,21 @@ export default function HomeFontGrid({
         ) ?? [];
 
     const [nameOverride, setNameOverride] = useState("");
-    const [displayFontSize, setDisplayFontSize] = useState(35)
+    const [displayFontSize, setDisplayFontSize] = useState(35);
+    const nameInputRef = useRef<HTMLInputElement>(null);
+
+    const handleSliderInteractionStart = () => {
+        if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+        }
+        nameInputRef.current?.blur();
+    };
 
     return (
         <>
             <div className={`${page_styles.name_input_wrap} ${global_styles.page_wrap}`}>
                 <input
+                    ref={nameInputRef}
                     id="font-name-preview"
                     className={page_styles.name_input}
                     type="text"
@@ -32,11 +41,13 @@ export default function HomeFontGrid({
                     onChange={(event) => setNameOverride(event.target.value)}
                     placeholder="Type your type"
                 />
-                <input 
-                    type="range" 
-                    min={16} 
-                    max={90} 
-                    value={displayFontSize} 
+                <input
+                    type="range"
+                    min={16}
+                    max={90}
+                    value={displayFontSize}
+                    onTouchStart={handleSliderInteractionStart}
+                    onMouseDown={handleSliderInteractionStart}
                     onChange={(event) => setDisplayFontSize(Number(event.target.value))}
                     className={page_styles.size_slider}
                 />

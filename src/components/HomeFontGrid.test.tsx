@@ -135,6 +135,20 @@ describe("HomeFontGrid", () => {
         expect(previewName?.getAttribute("style")).toContain("--preview-font-size: 48px");
     });
 
+    it("blurs the text input when slider interaction starts", () => {
+        const data = buildData([{ node: makeFont() }]);
+
+        render(<HomeFontGrid data={data} />);
+
+        const textInput = screen.getByPlaceholderText("Type your type");
+        textInput.focus();
+        expect(document.activeElement).toBe(textInput);
+
+        fireEvent.touchStart(screen.getByRole("slider"));
+
+        expect(document.activeElement).not.toBe(textInput);
+    });
+
     it("renders singular and plural style labels based on font style count", () => {
         const data = buildData([
             { node: makeFont({ id: "font-1", fontStyles: [{ id: "style-1" }] }) },
