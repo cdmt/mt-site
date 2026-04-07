@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { type CSSProperties, useState } from "react";
 import Link from "next/link";
 import FontStyle from "@/components/FontStyle";
 import PreloadWebfonts from "@/components/PreloadWebfonts";
@@ -19,6 +19,7 @@ export default function HomeFontGrid({
         ) ?? [];
 
     const [nameOverride, setNameOverride] = useState("");
+    const [displayFontSize, setDisplayFontSize] = useState(35)
 
     return (
         <>
@@ -31,6 +32,15 @@ export default function HomeFontGrid({
                     onChange={(event) => setNameOverride(event.target.value)}
                     placeholder="Type your type"
                 />
+                <input 
+                    type="range" 
+                    min={16} 
+                    max={90} 
+                    value={displayFontSize} 
+                    onChange={(event) => setDisplayFontSize(Number(event.target.value))}
+                    className={page_styles.size_slider}
+                />
+
             </div>
 
             <div className={`${page_styles.home_fonts} ${global_styles.page_wrap}`}>
@@ -55,7 +65,12 @@ export default function HomeFontGrid({
                                 >
                                     Aa
                                 </div>
-                                <div className={page_styles.font_block_name}>
+                                <div
+                                    className={page_styles.font_block_name}
+                                    style={{
+                                        "--preview-font-size": `${displayFontSize}px`,
+                                    } as CSSProperties}
+                                >
                                     {nameOverride || font.name}
                                 </div>
                             </FontStyle>

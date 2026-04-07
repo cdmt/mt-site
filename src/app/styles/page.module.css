@@ -7,26 +7,6 @@
     justify-content: center;
 }
 
-.name_input_wrap {
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.name_input {
-    margin: 0 auto;
-    width: min(100%, 320px);
-    padding: 8px;
-    border: 1px solid var(--font-border-color);
-    border-radius: 4px;
-    background: #fff;
-    color: #111;
-    font: inherit;
-}
-
-.name_input:focus {
-    outline: 1px solid var(--font-border-color);
-}
-
 @media(min-width:700px){
     .home_fonts {
         gap: 20;
@@ -83,14 +63,116 @@
     font-size: 55px;
 }
 .font_block_name{
-    font-size: 25px;
+    font-size: min(var(--preview-font-size, 25px), 18vw);
     margin-bottom: 5px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 @media(min-width:700px){
     .font_block_aa{
         font-size: 75px;
     }
     .font_block_name{
-        font-size: 35px;
+        font-size: var(--preview-font-size, 35px);
     }
+}
+
+.size_slider {
+    /* match TypeTesters slider width */
+    width: 200px;
+    max-width: 250px;
+
+    /* reset native appearance so we can paint the track ourselves */
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
+
+    /* vertical centre inside its flex row */
+    align-self: center;
+}
+.name_input_wrap {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(min-width: 700px){
+   .name_input_wrap {
+        flex-direction: row;
+        align-items: center;
+    } 
+}
+.name_input {
+    display: block;
+    width: min(100%, 250px);
+    margin: 0;
+    padding: 8px;
+    border: 1px solid var(--font-border-color);
+    border-radius: 4px;
+    background: #fff;
+    color: #111;
+    font: inherit;
+}
+
+@media(max-width: 699px){
+    .name_input {
+        margin: 0 auto;
+    }
+}
+
+
+.name_input:focus {
+    outline: 1px solid var(--font-border-color);
+}
+/* ── Track ────────────────────────────────────────────── */
+/* Webkit (Chrome, Safari, Edge) */
+.size_slider::-webkit-slider-runnable-track {
+    height: 1px;
+    background: currentcolor;
+}
+
+/* Firefox */
+.size_slider::-moz-range-track {
+    height: 1px;
+    background: currentcolor;
+    border: none;
+}
+
+/* ── Thumb ────────────────────────────────────────────── */
+/* Webkit */
+.size_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid currentcolor;
+    background-color: #fff;
+    /* keep thumb centred on the 1px track */
+    margin-top: -7px;
+    transition: background-color 100ms ease-out;
+}
+
+.size_slider::-webkit-slider-thumb:hover {
+    background-color: currentcolor;
+}
+
+/* Firefox */
+.size_slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid currentcolor;
+    background-color: #fff;
+    transition: background-color 100ms ease-out;
+}
+
+.size_slider::-moz-range-thumb:hover {
+    background-color: currentcolor;
+}
+
+.size_slider:focus {
+    outline: none;
 }
