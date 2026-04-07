@@ -158,6 +158,18 @@
         border-bottom: none;
     }
 }
+
+.font_info_inner_section_two{
+    border-top: 1px solid var(--font-info-border);
+    padding-top: 10px 0;
+}
+
+/* @media (max-width: 800px) {
+    .font_styles.font_info_inner_section{
+
+    }
+} */
+
 .font_info_inner_title{
     margin-bottom: 5px;
     font-weight: 600;

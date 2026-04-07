@@ -6,7 +6,7 @@ export default function FAQ() {
         <div className={global_styles.info_page}>
             <dl className={info_styles.faq_page}>
                 <dt><h4>What format are the fonts?</h4></dt>
-                <dd>The fonts are all in OpenType but other formats could be considered upon request.</dd>
+                <dd>The fonts are provided in OpenType, WOFF, and WOFF2 formats. Additional formats may be available upon request.</dd>
                 <dt><h4>What is Opentype?</h4></dt>
                 <dd>The Opentype font format is a cross-platform extension of the TrueType font format developed by jointly by Adobe and Microsoft. Opentype fonts can contain extended character sets and advanced layout features for use in Opentype savvy applications.</dd>
                 <dt><h4>What is an End User Licence Agreement?</h4></dt>
@@ -18,7 +18,7 @@ export default function FAQ() {
                 <dt><h4>Can the fonts be returned?</h4></dt>
                 <dd>Due to the fonts being digital products they cannot be returned for a refund. We go to every effort during the design and testing process to ensure the fonts are produced to the highest technical standards. If you have any issue please contact us directly.</dd>
                 <dt><h4>Can I alter, add or change the fonts?</h4></dt>
-                <dd>Glyphs can be altered for logo or branding purposes, altered glyphs can not be resold as a font. If you require a specific alteration to a font please contact us, we should be able to help.</dd>
+                <dd>Fonts must be used as provided and may not be altered, edited, or modified. This includes all glyphs, which cannot be changed for logo design, branding, or any other use.</dd>
                 <dt><h4>Can I use the fonts in a website?</h4></dt>
                 <dd>Fonts can be used in a website providing they are in a secure, read only mode. This is covered in more detail in the Moretype EULA. Moretype fonts are available as web fonts from Typekit, Fontdeck and Webink</dd>
                 <dt><h4>Have another question ?</h4></dt>

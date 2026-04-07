@@ -50,7 +50,7 @@ export default function FontInfoSection({
                     </div>
                 </div>
                 <div>
-                    <div className={font_styles.font_info_inner_section}>
+                    <div className={`${font_styles.font_info_inner_section} ${font_styles.font_info_inner_section_two}`}>
                         <div className={font_styles.language_header}>
                             <p className={font_styles.font_info_inner_title}>Supported languages:</p>
                             <button
