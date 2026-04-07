@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom/jest-globals";
 import { beforeEach, describe, expect, it, jest } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
-import type { ReactNode } from "react";
+import { isValidElement, type ReactNode } from "react";
 import type { RootLayoutQuery } from "../../operations-types";
 
 const mockFetchGraphql = jest.fn<
@@ -91,6 +91,19 @@ function buildRootLayoutQuery(): RootLayoutQuery {
     };
 }
 
+function renderLayoutOutput(layoutOutput: ReactNode) {
+    if (!isValidElement(layoutOutput) || layoutOutput.type !== "html") {
+        throw new Error("Expected RootLayout to return an <html> element");
+    }
+
+    const body = layoutOutput.props.children;
+    if (!isValidElement(body) || body.type !== "body") {
+        throw new Error("Expected RootLayout <html> to contain a <body> element");
+    }
+
+    return render(body.props.children);
+}
+
 describe("RootLayout", () => {
     beforeEach(() => {
         jest.resetModules();
@@ -104,7 +117,7 @@ describe("RootLayout", () => {
         const ui = await RootLayout({
             children: <div>Page body</div>,
         });
-        render(ui);
+        renderLayoutOutput(ui);
 
         expect(mockFetchGraphql).toHaveBeenCalledWith("RootLayout.graphql", undefined);
         expect(screen.getByRole("img", { name: "Logo" })).toHaveAttribute(
@@ -145,7 +158,7 @@ describe("RootLayout", () => {
         const ui = await RootLayout({
             children: <div>Body</div>,
         });
-        render(ui);
+        renderLayoutOutput(ui);
 
         expect(screen.getByText("Body")).toBeInTheDocument();
         expect(screen.getByRole("link", { name: "Login" })).toBeInTheDocument();
