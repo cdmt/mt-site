@@ -97,12 +97,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 @media(min-width: 700px){
    .name_input_wrap {
         flex-direction: row;
         align-items: center;
+        margin-bottom: 15px;
     } 
 }
 .name_input {
