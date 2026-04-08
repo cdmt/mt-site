@@ -12,7 +12,7 @@
 body {
     line-height: 1.1;
     -webkit-font-smoothing: antialiased;
-    font-family: "Alber New", sans-serif;
+    font-family: var(--ui-font-family, "Alber New"), sans-serif;
     font-size: 16px;
     color:var(--text-color);
 }

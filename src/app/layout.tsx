@@ -9,6 +9,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import NavLink from "@/components/NavLink";
 import CartButton from "fontdue-js/CartButton";
+import type { CSSProperties } from "react";
 //
 import global_styles from "./styles/global.module.css";
 import "./styles/globals.css";
@@ -57,12 +58,26 @@ export default async function RootLayout({
     }>) {
 
     const { viewer } = await getData();
+    const uiFontStyle = viewer.settings?.uiFontStyle;
+    const uiFontFamily = uiFontStyle?.cssFamily && uiFontStyle?.name
+        ? `${uiFontStyle.cssFamily} ${uiFontStyle.name}`
+        : null;
+    const uiFontWoff2Url = uiFontStyle?.webfontSources?.find(
+        (source) => source?.format === "woff2" && source.url,
+    )?.url;
+    const uiFontCss = uiFontFamily && uiFontWoff2Url
+        ? `@font-face { font-family: "${uiFontFamily}"; src: url(${uiFontWoff2Url}) format("woff2"); font-display: swap; }`
+        : null;
+    const bodyStyle = uiFontFamily
+        ? ({ "--ui-font-family": `"${uiFontFamily}"` } as CSSProperties)
+        : undefined;
 
     const pages = viewer.pages?.edges?.map((edge) => edge!.node!);   
 
     return (
         <html lang="en">
-            <body>
+            <body style={bodyStyle}>
+                {uiFontCss ? <style dangerouslySetInnerHTML={{ __html: uiFontCss }} /> : null}
                 <div className={global_styles.page}>
                     <FontdueProvider url={fontdueUrl}>
                         <header className={global_styles.header}>

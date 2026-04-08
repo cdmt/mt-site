@@ -14,11 +14,14 @@
     }
 }
 .page_wrap{
-    margin-top: 20px;
+    margin-top: 10px !important;
 }
 @media(min-width: 800px){
     .page_width{
         width: 60%;
+    }
+    .page_wrap{
+        margin-top: 20px;
     }
 }
 .header{
