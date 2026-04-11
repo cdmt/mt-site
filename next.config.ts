@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "cdn.fontdue.com",
       },
+      {
+        protocol: "https",
+        hostname: "store.moretype.co.uk",
+      },
     ],
   },
 };
