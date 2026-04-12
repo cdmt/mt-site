@@ -30,9 +30,9 @@
     right: 10px;
     display: inline-block;
     margin-bottom: 8px;
-    padding: 2px 8px;
+    padding: 5px 10px;
     border-radius: 999px;
-    background: var(--new-yellow);
+    background: var(--new-badge);
     color: #fff;
     font-size: 12px;
     font-weight: 700;
