@@ -34,6 +34,7 @@ export default function FontStyle({
         <span
             style={{
                 ...style,
+                fontSynthesis: "none",
                 fontWeight: fontWeight ?? style.fontWeight,
                 fontStyle: fontStyle ?? style.fontStyle,
                 ...styleProp,
