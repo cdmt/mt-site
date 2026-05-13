@@ -17,6 +17,7 @@ import "./styles/over_rides.module.css";
 
 const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const gaMeasurementId = "G-RSRRKH9C95";
 
 async function getData() {
   return fetchGraphql<RootLayoutQuery>("RootLayout.graphql");
@@ -77,6 +78,24 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body style={bodyStyle}>
+                {gaMeasurementId ? (
+                    <>
+                        <script
+                            async
+                            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+                        />
+                        <script
+                            dangerouslySetInnerHTML={{
+                                __html: `
+                                    window.dataLayer = window.dataLayer || [];
+                                    function gtag(){dataLayer.push(arguments);}
+                                    gtag('js', new Date());
+                                    gtag('config', '${gaMeasurementId}');
+                                `,
+                            }}
+                        />
+                    </>
+                ) : null}
                 {uiFontCss ? <style dangerouslySetInnerHTML={{ __html: uiFontCss }} /> : null}
                 <div className={global_styles.page}>
                     <FontdueProvider url={fontdueUrl}>
