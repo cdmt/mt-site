@@ -15,7 +15,6 @@ import global_styles from "./styles/global.module.css";
 import "./styles/globals.css";
 import "./styles/over_rides.module.css";
 
-const fontdueUrl = process.env.NEXT_PUBLIC_FONTDUE_URL;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 const gaMeasurementId = "G-RSRRKH9C95";
 
@@ -98,7 +97,7 @@ export default async function RootLayout({
                 ) : null}
                 {uiFontCss ? <style dangerouslySetInnerHTML={{ __html: uiFontCss }} /> : null}
                 <div className={global_styles.page}>
-                    <FontdueProvider url={fontdueUrl}>
+                    <FontdueProvider>
                         <header className={global_styles.header}>
                             <Link href="/">
                                 <Image
