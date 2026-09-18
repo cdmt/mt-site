@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
+import { withFontdue } from "fontdue-js/next/config";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
     remotePatterns: [
       {
@@ -17,6 +18,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-};
+} satisfies NextConfig;
 
-export default nextConfig;
+export default withFontdue(nextConfig);
