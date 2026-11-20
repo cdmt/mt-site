@@ -10,6 +10,11 @@ export default function InfoLayout({ children }: { children: ReactNode }) {
             <nav aria-label="Info navigation" className={info_styles.sub_nav}>
                 <ul className={global_styles.nav_sub_links}>
                     <li>
+                        <NavLink href="/info/about" className={global_styles.nav_link} activeClassName={global_styles.nav_link_active}>
+                            About
+                        </NavLink>
+                    </li>
+                    <li>
                         <NavLink href="/info/eula" className={global_styles.nav_link} activeClassName={global_styles.nav_link_active}>
                             EULA
                         </NavLink>
