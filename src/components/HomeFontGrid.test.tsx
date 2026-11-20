@@ -121,12 +121,43 @@ describe("HomeFontGrid", () => {
         expect(screen.queryByText("Bento")).not.toBeInTheDocument();
     });
 
+    it("updates preview names using the select and restores font names for the default option", () => {
+        const data = buildData([
+            { node: makeFont({ id: "font-1", name: "Acme" }) },
+            { node: makeFont({ id: "font-2", name: "Bento", slug: { name: "bento" } }) },
+        ]);
+
+        const { container } = render(
+            <HomeFontGrid data={data} pangram="Sphinx of black quartz, judge my vow." />,
+        );
+
+        const select = screen.getByRole("combobox", { name: "Select Text" });
+        fireEvent.change(select, {
+            target: { value: "Sphinx of black quartz, judge my vow." },
+        });
+
+        const previewNames = container.querySelectorAll(".font_block_name");
+        expect(previewNames).toHaveLength(2);
+        previewNames.forEach((previewName) => {
+            expect(previewName).toHaveTextContent("Sphinx of black quartz, judge my vow.");
+        });
+
+        fireEvent.change(select, { target: { value: "" } });
+
+        expect(screen.getByText("Acme")).toBeInTheDocument();
+        expect(screen.getByText("Bento")).toBeInTheDocument();
+    });
+
     it("updates preview font size css variable when slider value changes", () => {
         const data = buildData([{ node: makeFont() }]);
 
         const { container } = render(<HomeFontGrid data={data} />);
 
-        fireEvent.change(screen.getByRole("slider"), {
+        const slider = screen.getByRole("slider", { name: "Text Size" });
+        expect(slider).toHaveAttribute("min", "16");
+        expect(slider).toHaveAttribute("max", "200");
+
+        fireEvent.change(slider, {
             target: { value: "48" },
         });
 
