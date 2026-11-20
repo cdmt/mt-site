@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
-
-const ENDPOINT = `${process.env.NEXT_PUBLIC_FONTDUE_URL}/graphql`;
+import { notFound } from "next/navigation";
+import { createFontdueFetch, FontdueNotFoundError } from "fontdue-js/server";
 
 const getStaticQuery = async (queryName: string) => {
   let query = await fs.readFile(
@@ -14,32 +14,16 @@ const getStaticQuery = async (queryName: string) => {
 
 const fetchGraphql = async <Q, V = void>(
   queryName: string,
-  variables: V | void,
+  variables?: V,
 ): Promise<Q> => {
   const query = await getStaticQuery(queryName);
-  const response = await fetch(`${ENDPOINT}?query=${queryName}`, {
-    method: "POST",
-    body: JSON.stringify({ query, variables }),
-    headers: {
-      "content-type": "application/json",
-    },
-    next: {
-      tags: ["graphql"],
-    },
-  });
-
-  if (response.status !== 200) {
-    throw new Error("Fontdue request failed");
+  const fetchFontdue = createFontdueFetch();
+  try {
+    return await fetchFontdue<Q, V>(queryName, query, variables);
+  } catch (error) {
+    if (error instanceof FontdueNotFoundError) notFound();
+    throw error;
   }
-
-  const json = await response.json();
-
-  const errorMessage = json.errors?.[0]?.message;
-  if (errorMessage) {
-    throw new Error(`Fontdue graphql request error: ${errorMessage}`);
-  }
-
-  return json.data;
 };
 
 export { fetchGraphql, getStaticQuery };

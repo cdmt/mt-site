@@ -9,6 +9,7 @@ import BuyButton from "fontdue-js/BuyButton";
 import StandaloneTypeTesters from "@/components/StandaloneTypeTesters";
 import FontInfoSection from "@/components/FontInfoSection";
 import FontStyleSamples from "@/components/FontStyleSamples";
+import PreloadWebfonts from "@/components/PreloadWebfonts";
 //
 import font_styles from "../../styles/fonts.module.css"
 
@@ -60,6 +61,9 @@ export default async function FontPage({
 
     return (
         <div className={font_styles.page_wrap}>
+            {font.fontStyles.map((style) => (
+                <PreloadWebfonts key={style.name} style={style} />
+            ))}
             <div className={font_styles.sticky_buy_button_wrap}>
                     <BuyButton
                         collectionId={font.id}

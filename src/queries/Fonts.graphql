@@ -17,6 +17,10 @@ fragment FontDetailCollection on FontCollection {
     cssFamily
     cssWeight
     cssStyle
+    webfontSources {
+      format
+      url
+    }
     sku {
       id
     }
