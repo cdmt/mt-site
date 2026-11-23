@@ -44,7 +44,20 @@ jest.mock("@/components/Footer", () => ({
 
 jest.mock("fontdue-js/FontdueProvider", () => ({
     __esModule: true,
-    default: ({ children }: { children: ReactNode }) => <>{children}</>,
+    default: ({
+        children,
+        config,
+    }: {
+        children: ReactNode;
+        config?: { typeTester?: { columns?: boolean } };
+    }) => (
+        <div
+            data-testid="fontdue-provider"
+            data-type-tester-columns={String(config?.typeTester?.columns)}
+        >
+            {children}
+        </div>
+    ),
 }));
 
 jest.mock("fontdue-js/StoreModal", () => ({
@@ -92,12 +105,12 @@ function buildRootLayoutQuery(): RootLayoutQuery {
 }
 
 function renderLayoutOutput(layoutOutput: ReactNode) {
-    if (!isValidElement(layoutOutput) || layoutOutput.type !== "html") {
+    if (!isValidElement<{ children: ReactNode }>(layoutOutput) || layoutOutput.type !== "html") {
         throw new Error("Expected RootLayout to return an <html> element");
     }
 
     const body = layoutOutput.props.children;
-    if (!isValidElement(body) || body.type !== "body") {
+    if (!isValidElement<{ children: ReactNode }>(body) || body.type !== "body") {
         throw new Error("Expected RootLayout <html> to contain a <body> element");
     }
 
@@ -131,6 +144,10 @@ describe("RootLayout", () => {
             "/customer-login"
         );
         expect(screen.getByRole("button", { name: "Cart" })).toBeInTheDocument();
+        expect(screen.getByTestId("fontdue-provider")).toHaveAttribute(
+            "data-type-tester-columns",
+            "false"
+        );
         expect(screen.getByText("Page body")).toBeInTheDocument();
         expect(screen.getByTestId("store-modal")).toBeInTheDocument();
         expect(screen.getByTestId("footer")).toBeInTheDocument();

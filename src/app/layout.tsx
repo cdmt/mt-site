@@ -97,7 +97,7 @@ export default async function RootLayout({
                 ) : null}
                 {uiFontCss ? <style dangerouslySetInnerHTML={{ __html: uiFontCss }} /> : null}
                 <div className={global_styles.page}>
-                    <FontdueProvider>
+                    <FontdueProvider config={{ typeTester: { columns: false } }}>
                         <header className={global_styles.header}>
                             <Link href="/">
                                 <Image
