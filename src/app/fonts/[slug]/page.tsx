@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { fetchGraphql } from "@/lib/graphql";
@@ -16,6 +17,45 @@ import font_styles from "../../styles/fonts.module.css"
 
 async function getData(slug: string) {
     return fetchGraphql<FontQuery, FontQueryVariables>("Fonts.graphql", { slug });
+}
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const data = await getData(slug);
+    const font = data.viewer?.slug?.fontCollection;
+
+    if (!font) {
+        return {};
+    }
+
+    const description = font.pageMetadata?.description
+        ?? font.shortDescription
+        ?? font.description
+        ?? `Explore ${font.name}, a typeface from Moretype.`;
+    const keywords = font.pageMetadata?.keywords?.split(",").map((keyword) => keyword.trim()).filter(Boolean);
+    const image = font.images?.[0]?.url;
+
+    return {
+        title: font.pageMetadata?.title ?? `${font.name} typeface`,
+        description,
+        keywords,
+        openGraph: {
+            type: "website",
+            title: font.pageMetadata?.title ?? `${font.name} typeface`,
+            description,
+            ...(image ? { images: [{ url: image }] } : {}),
+        },
+        twitter: {
+            card: image ? "summary_large_image" : "summary",
+            title: font.pageMetadata?.title ?? `${font.name} typeface`,
+            description,
+            ...(image ? { images: [image] } : {}),
+        },
+    };
 }
 
 export default async function FontPage({
@@ -74,7 +114,7 @@ export default async function FontPage({
                     familyName={font.featureStyle?.cssFamily}
                     styleName={font.featureStyle?.name}
                 >
-                    <h2 className={font_styles.font_title}>{font.name}</h2>
+                    <h1 className={font_styles.font_title}>{font.name}</h1>
                 </FontStyle>
             </section>
             <section className={`${font_styles.style_list} ${font_styles.page_section}`}>

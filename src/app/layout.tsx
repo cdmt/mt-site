@@ -26,13 +26,10 @@ export const metadata: Metadata = {
     metadataBase: siteUrl ? new URL(siteUrl) : undefined,
     title: {
         default: "Moretype",
-        template: "%s | Moretype",
+        template: "%s — Moretype",
     },
-    description: "Moretype type foundry",
+    description: "Independent type foundry creating contemporary, practical typefaces for print and digital design.",
     applicationName: "Moretype",
-    alternates: {
-        canonical: "/",
-    },
     robots: {
         index: true,
         follow: true,
@@ -40,14 +37,13 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         title: "Moretype",
-        description: "Moretype type foundry",
+        description: "Independent type foundry creating contemporary, practical typefaces for print and digital design.",
         siteName: "Moretype",
-        url: "/",
     },
     twitter: {
         card: "summary",
         title: "Moretype",
-        description: "Moretype type foundry",
+        description: "Independent type foundry creating contemporary, practical typefaces for print and digital design.",
     },
 };
 
