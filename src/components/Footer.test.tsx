@@ -46,6 +46,14 @@ describe("Footer", () => {
 
         expect(screen.getByRole("link", { name: /^fonts$/i })).toHaveAttribute("href", "/");
         expect(screen.getByRole("link", { name: /^info$/i })).toHaveAttribute("href", "/info");
+        expect(screen.getByRole("link", { name: "Privacy notice" })).toHaveAttribute(
+            "href",
+            "/info/privacy-notice",
+        );
+        expect(screen.getByRole("link", { name: "Cookie policy" })).toHaveAttribute(
+            "href",
+            "/info/cookie-policy",
+        );
 
         const instagramLink = screen.getByRole("link", { name: /instagram logo/i });
         expect(instagramLink).toHaveAttribute("href", "https://www.instagram.com/moretype/");

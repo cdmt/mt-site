@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import NavLink from "@/components/NavLink";
+import CookieConsent from "@/components/CookieConsent";
 import CartButton from "fontdue-js/CartButton";
 import type { CSSProperties } from "react";
 //
@@ -16,7 +17,6 @@ import "./styles/globals.css";
 import "./styles/over_rides.module.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-const gaMeasurementId = "G-RSRRKH9C95";
 
 async function getData() {
   return fetchGraphql<RootLayoutQuery>("RootLayout.graphql");
@@ -73,24 +73,7 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body style={bodyStyle}>
-                {gaMeasurementId ? (
-                    <>
-                        <script
-                            async
-                            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-                        />
-                        <script
-                            dangerouslySetInnerHTML={{
-                                __html: `
-                                    window.dataLayer = window.dataLayer || [];
-                                    function gtag(){dataLayer.push(arguments);}
-                                    gtag('js', new Date());
-                                    gtag('config', '${gaMeasurementId}');
-                                `,
-                            }}
-                        />
-                    </>
-                ) : null}
+                <CookieConsent />
                 {uiFontCss ? <style dangerouslySetInnerHTML={{ __html: uiFontCss }} /> : null}
                 <div className={global_styles.page}>
                     <FontdueProvider config={{ typeTester: { columns: false } }}>

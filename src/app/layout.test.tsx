@@ -42,6 +42,11 @@ jest.mock("@/components/Footer", () => ({
     default: () => <div data-testid="footer" />,
 }));
 
+jest.mock("@/components/CookieConsent", () => ({
+    __esModule: true,
+    default: () => <div data-testid="cookie-consent" />,
+}));
+
 jest.mock("fontdue-js/FontdueProvider", () => ({
     __esModule: true,
     default: ({

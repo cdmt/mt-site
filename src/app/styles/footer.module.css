@@ -5,7 +5,7 @@
 
 .footer_fonts, .footer_pages{
     margin-bottom: 20px;
-    a{
+    a, span{
         color: #888;
 
         &:hover{
@@ -14,10 +14,8 @@
     }
 }
 
-.footer_pages{
-    a{
-        display: block;
-    }
+.footer_legal{
+    margin-top: 10px;
 }
 
 .footer_divider{
@@ -59,6 +57,7 @@
     }
 }
 .footer_link{
-    padding: 3px 2px;
+    /* border: 1px solid red; */
     display: inline-block;
+    padding: 0 10px 5px 0;
 }

@@ -24,28 +24,34 @@ export default async function Footer({ data }: FooterProps = {}) {
             <div className={footer_styles.footer_wrap}>
                 <div className={footer_styles.footer_fonts}>
                     {fonts.map((font) => (
-                        <Link href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"} key={font.id} className={footer_styles.footer_link}>
-                            {font.name} •{' '}
+                        <Link key={font.id} href={font.slug?.name ? `/fonts/${font.slug.name}` : "/fonts"} className={footer_styles.footer_link}>
+                            {font.name}
                         </Link>
                     ))}
                 </div>
                 <div className={footer_styles.footer_divider} aria-hidden="true" />
                 <div className={footer_styles.footer_pages}>
-                    {pages.map((page) => (
-                        <Link
-                            href={
-                                page.slug?.name
-                                    ? page.slug.name === "fonts"
-                                        ? "/"
-                                        : `/${page.slug.name}`
-                                    : "/"
-                            }
-                            key={page.id}
-                            className={footer_styles.footer_link}
-                        >
-                            <p>{page.title}</p>
-                        </Link>
-                    ))}
+                    <div className={`${footer_styles.footer_pages} ${footer_styles.footer_links}`}>
+                        {pages.map((page) => (
+                            <Link
+                                href={
+                                    page.slug?.name
+                                        ? page.slug.name === "fonts"
+                                            ? "/"
+                                            : `/${page.slug.name}`
+                                        : "/"
+                                }
+                                key={page.id}
+                                className={footer_styles.footer_link}
+                            >
+                                {page.title}
+                            </Link>
+                        ))}
+                    </div>
+                    <div className={`${footer_styles.footer_legal} ${footer_styles.footer_links}`}>
+                        <Link href="/info/privacy-notice" className={footer_styles.footer_link}>Privacy notice</Link>
+                        <Link href="/info/cookie-policy" className={footer_styles.footer_link}>Cookie policy</Link>
+                    </div>
                 </div>
                 <div className={footer_styles.footer_divider} aria-hidden="true" />
                 <div className={footer_styles.footer_links}>

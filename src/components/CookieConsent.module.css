@@ -1,0 +1,75 @@
+.banner {
+    position: fixed;
+    z-index: 1000;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    border: 1px solid var(--border-color, #c7c6c1);
+    /* border-top: 3px dotted var(--header-dashed-line, #d958ab); */
+    background: #fff;
+    box-shadow: 0 4px 24px rgb(0 0 0 / 14%);
+}
+
+.copy h2 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.copy p {
+    max-width: 620px;
+    line-height: 1.4;
+}
+
+.actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.actions button {
+    min-height: 42px;
+    padding: 9px 14px;
+    border: 1px solid #111;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.primaryButton {
+    color: #fff;
+    background: #111;
+}
+
+.secondaryButton {
+    color: #111;
+    background: #fff;
+}
+
+.actions button:focus-visible,
+.banner a:focus-visible {
+    outline: 3px solid var(--header-dashed-line, #d958ab);
+    outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+    .banner {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px;
+    }
+
+    .actions {
+        flex-direction: column-reverse;
+    }
+}
